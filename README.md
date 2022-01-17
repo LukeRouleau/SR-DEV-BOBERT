@@ -13,7 +13,7 @@ Create a ROS2-running robot powered by the Nvidia Jetson. Since the Jetson runs 
 - Test the docker container, try to start a Gazebo World. **Failure, detailed below.**
 
 ### Issues Present [as of Alpha Build 1/21/22]:
-- Though we can successfully build a ROS2 Foxy container with Gazebo and Python 3 Bindings for Gazebo, Gazebo ALWAYS hangs on launch, like seen [here](./ROS2_Docker_Implementation/imgs/gazebo_hang.jpg).
+- Though we can successfully build a ROS2 Foxy container with Gazebo and Python 3 Bindings for Gazebo, Gazebo ALWAYS hangs on launch, like seen [here](./ROS2_Docker_Implementation/imgs/gazebo_hang.jpeg).
 - We cannot escape the feeling that we are trying to stick a round peg into a square hole with trying to run ROS2 on the Jetson. 
   - **It might be time to fallback to ROS. - Luke, 1/17/22**
 
