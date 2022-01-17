@@ -1,3 +1,6 @@
+#	Bobert's Custom Dockerfile, modded by Luke Rouleau, originally from:
+#	https://github.com/dusty-nv/jetbot_ros
+#--------------------------------------------------------------------------
 # Copyright (c) 2020, NVIDIA CORPORATION. All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
