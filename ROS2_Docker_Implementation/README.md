@@ -1,4 +1,4 @@
-# SR-DEV-BOBERT
+# SR-DEV-BOBERT ROS2 Foxy Implementation
 
 Create a ROS2-running robot powered by the Nvidia Jetson. Since the Jetson runs Ubuntu 18, use docker to accomplish this.
 
