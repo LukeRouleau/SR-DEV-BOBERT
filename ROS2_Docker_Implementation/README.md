@@ -79,6 +79,3 @@ ros2 topic info <topic_name>
 ros2 topic hz <topic_name>
 ```
 [Understanding ROS2 Services](https://www.youtube.com/watch?v=uYW8UJZTuAg&list=PLRE44FoOoKf7NzWwxt3W2taZ7BiWyfhCp&index=6)
-```
-TBF
-```
