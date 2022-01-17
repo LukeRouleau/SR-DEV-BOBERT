@@ -2,6 +2,27 @@
 
 Create a ROS2-running robot powered by the Nvidia Jetson. Since the Jetson runs Ubuntu 18, use docker to accomplish this.
 
+## Docker Tutorial
+Tutorial link [here](https://www.youtube.com/watch?v=3c-iBn73dDE&t=6279s)
+### Top Docker Commands:
+```
+docker –version
+docker pull <image name>
+docker run -it -d <image name>
+docker ps
+docker ps -a
+docker exec -it <container id> bash
+docker stop <container id>
+docker kill <container id>
+docker commit
+docker login
+docker push <username/image name>
+docker images
+docker rm <container id>
+docker rmi <image-id>
+docker build <path to docker file>
+```
+
 ## ROS2 Commands
 Tutorial link [here](https://www.youtube.com/watch?v=bFDfvKctvV8&list=PLRE44FoOoKf7NzWwxt3W2taZ7BiWyfhCp&index=1).
 
