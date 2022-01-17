@@ -1,5 +1,7 @@
 # SR-DEV-BOBERT
 Team Mission Control's Repository for UF CpE Senior Design 2022
+- Luke Rouleau
+- Xuanhao Shi
 
 ## [ROS2-Docker Implementation](./ROS2_Docker_Implementation)
 ### Goal:
