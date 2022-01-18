@@ -1,0 +1,8 @@
+prefix=/home/steffen/bobert_ws/install
+
+Name: bobert_control
+Description: Description of bobert_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

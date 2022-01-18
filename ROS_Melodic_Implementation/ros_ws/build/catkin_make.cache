@@ -1,0 +1,2 @@
+bobert_control:ros_control_boilerplate
+-DCMAKE_BUILD_TYPE=Debug -DCATKIN_DEVEL_PREFIX=/home/steffen/bobert_ws/devel -DCMAKE_INSTALL_PREFIX=/home/steffen/bobert_ws/install -G Unix Makefiles
