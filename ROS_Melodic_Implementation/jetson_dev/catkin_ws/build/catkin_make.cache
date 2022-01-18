@@ -1,0 +1,2 @@
+ros_deep_learning
+-DCATKIN_DEVEL_PREFIX=/home/luke/workspace/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/luke/workspace/catkin_ws/install -G Unix Makefiles
