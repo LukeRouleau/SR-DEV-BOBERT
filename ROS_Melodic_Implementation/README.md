@@ -20,7 +20,7 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
   - D435 & T265 Combined Launch ROS Graph:
 ![D435 & T265](./jetson_dev/images/d435_and_t265_rosgraph.png)
 
-### What is RoboWare Studio?
+## What is RoboWare Studio?
 RoboWare Studio is an IDE, based on Visual Studio, for ROS development. The ROS [workspace](./ros_ws/) we've created has been formatted to be compatible with the Roboware IDE:
 1. Download and install [RoboWare Studio](http://www.roboware.me/) 
 2. Open RoboWare Studio and select [ros_ws](./ros_ws/) as your workspace.
