@@ -26,4 +26,5 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Install ROS Melodic onto the Nvidia Jetson 
 - Install Gazebo for ROS Melodic
-- Install the RealSense Library & Wrappers for ROS Melodic 
+- Install the RealSense Library & Wrappers for ROS Melodic
+- Create a [Roboware](http://wiki.ros.org/IDEs#RoboWare_Studio) IDE compatible [workspace](./ROS_Melodic_Implementation/ros_ws/)
