@@ -31,3 +31,4 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 - Built [jetson-inference](https://github.com/dusty-nv/jetson-inference), Nvidia's DNN repository for the Jetson Platform, onto the Jetson.
 - Built the [ROS Melodic Nodes](https://github.com/dusty-nv/ros_deep_learning) to interact with **jetson-inference** from our cameras.
 - [Connect the RealSense D435 and T265 cameras to the ROS environment, spawn their nodes.](./ROS_Melodic_Implementation/jetson_dev/images/d435_and_t265_rosgraph.png)
+- ![Connect the camera input to Rviz](https://youtu.be/0Snpj9SjjzQ)
