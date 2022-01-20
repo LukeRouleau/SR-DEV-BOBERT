@@ -32,7 +32,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - Create a ROS workspace in which a master node, camera nodes and topics, are created
   - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
   - [Create unit tests](PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
-- Develop SLAM, Mapping, and Navigation ROS packages for the competition environment.
+- Employ SLAM, Mapping, and Navigation ROS packages for the competition environment.
 - Use Move-It to perform inverse kinematics on the arm when the wheeled platform is in a correct location.
 - **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion.
 - **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
@@ -59,8 +59,9 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 ### Software Overview
 1. Tools Used & Their Purpose
    - Perception:
-     - **Intel RealSense Cameras:**  here
-     - **RealSense Wrappers and ROS Nodes:** here
+     - **Intel RealSense SDK:** Exposes Open3D, TensorFlow, and OpenVINO packages, ROS Nodes, and install the hardware drivers for the T265 and D435 cameras 
+     - [jetson-inference](https://github.com/dusty-nv/jetson-inference): Provides a Nvidia Deep-Learning API, which we will employ via transfer learning for object identification.
+     - Here 
 2. Relationship Diagram
    - here
 3. Interfaces
