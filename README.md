@@ -13,6 +13,8 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
    - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
 
 ### Design Goals
+**Top-Level Goal:** The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
+IEEE Hardware Team*, to compete at *IEEE SoutheastCon*.
 
 ### Architecture
 
