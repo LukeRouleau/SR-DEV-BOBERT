@@ -24,7 +24,7 @@ The objective of the competition is to autonomously clear an L-shaped track, whi
 </p>
 
 ### How does *Mission Control* plan to accomplish those goals?
-Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is that we will:
+Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is:
 - [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
 - Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
 - Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
@@ -37,6 +37,8 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 
 ## Architecture
 ### Hardware Overview
+1. Robotic Platform
+
 ### Software Overview
 1. Tools Used & Their Purpose
    - Perception:
