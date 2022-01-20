@@ -17,7 +17,7 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
 IEEE Hardware Team*, to compete at *IEEE SoutheastCon*.
 
-### What are the objectives for IEEE Southeast Con?
+### What are the objectives specified by the IEEE Southeast Con Competition?
 The objective of the competition is to autonomously clear an L-shaped track, which models a city corner, of debris (i.e., a marshmallow placed somewhere on the road) and to remove Mardi Gras-style bead necklaces from "trees" and deposit them into plastic cups or throw them into nets. Most of the track remains static, but the location of the "trees" are random. View the [official competiton document](./docs/2022_SoutheastCon_HardwareRules-Final.pdf).
 <p align="center">
    <img src="./images/southeast_con_2022_competition_course.PNG" width="400">
@@ -27,10 +27,10 @@ The objective of the competition is to autonomously clear an L-shaped track, whi
 Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is that we will:
 - [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
 - Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
-- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS)
-```
-sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
-```
+- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
+  - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
+- Create a ROS workspace in which a master node, camera nodes and topics, are created
+  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
 
  
 
