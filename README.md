@@ -19,8 +19,7 @@ IEEE Hardware Team*, to compete at *IEEE SoutheastCon*.
 
 ### What are the objectives for IEEE Southeast Con?
 The objective of the competition is to autonomously clear an L-shaped track, whcih models a city corner, of debris (i.e., a marshmallow placed somewhere on the road) and to remove Mardi Gras-style bead necklaces from "trees" and deposit them into plastic cups or throw them into nets. Most of the track remains static, but the location of the "trees" are random. View the [official competiton document](./docs/2022_SoutheastCon_HardwareRules-Final.pdf).
-- ![](./images/southeast_con_2022_competition_course.PNG)
-- <img src="./images/southeast_con_2022_competition_course.PNG" width="48">
+<img src="./images/southeast_con_2022_competition_course.PNG" width="100">
 
 
 ### How does *Mission Control* plan to accomplish those goals?
