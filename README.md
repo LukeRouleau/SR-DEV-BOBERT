@@ -17,25 +17,35 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
 IEEE Hardware Team*, to compete at *IEEE SoutheastCon*.
 
-### What are the objectives for IEEE Southeast Con?
-The objective of the competition is to autonomously clear an L-shaped track, whcih models a city corner, of debris (i.e., a marshmallow placed somewhere on the road) and to remove Mardi Gras-style bead necklaces from "trees" and deposit them into plastic cups or throw them into nets. Most of the track remains static, but the location of the "trees" are random. View the [official competiton document](./docs/2022_SoutheastCon_HardwareRules-Final.pdf).
-![](./images/southeast_con_2022_competition_course.png)
-
+### What are the objectives specified by the IEEE Southeast Con Competition?
+The objective of the competition is to autonomously clear an L-shaped track, which models a city corner, of debris (i.e., a marshmallow placed somewhere on the road) and to remove Mardi Gras-style bead necklaces from "trees" and deposit them into plastic cups or throw them into nets. Most of the track remains static, but the location of the "trees" are random. View the [official competiton document](./docs/2022_SoutheastCon_HardwareRules-Final.pdf).
+<p align="center">
+   <img src="./images/southeast_con_2022_competition_course.PNG" width="400">
+</p>
 
 ### How does *Mission Control* plan to accomplish those goals?
-Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is that we will:
+Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is:
 - [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
 - Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
-- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS)
-```
-sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
-```
-
+- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
+  - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
+- Create a ROS workspace in which a master node, camera nodes and topics, are created
+  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
+  - [Create unit tests](PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
+- Develop SLAM, Mapping, and Navigation ROS packages for the competition environment.
+- Use Move-It to perform inverse kinematics on the arm when the wheeled platform is in a correct location.
+- **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion.
+- **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+-  
+- 
+  
  
 
 
 ## Architecture
 ### Hardware Overview
+1. Robotic Platform
+
 ### Software Overview
 1. Tools Used & Their Purpose
    - Perception:
@@ -52,6 +62,7 @@ sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
   - Creation the ROS environment
   - Connecting perception (RealSense Cameras) to ROS
 - Xuanhao's Responsibilites:  
+  - Link to his repo which includes his paper trail 
 
 
 
