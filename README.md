@@ -31,7 +31,14 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
   - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
 - Create a ROS workspace in which a master node, camera nodes and topics, are created
   - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
-
+  - [Create unit tests](PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
+- Develop SLAM, Mapping, and Navigation ROS packages for the competition environment.
+- Use Move-It to perform inverse kinematics on the arm when the wheeled platform is in a correct location.
+- **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion.
+- **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+-  
+- 
+  
  
 
 
@@ -55,6 +62,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
   - Creation the ROS environment
   - Connecting perception (RealSense Cameras) to ROS
 - Xuanhao's Responsibilites:  
+  - Link to his repo which includes his paper trail 
 
 
 
