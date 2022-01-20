@@ -36,15 +36,19 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - Use Move-It to perform inverse kinematics on the arm when the wheeled platform is in a correct location.
 - **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion.
 - **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
--  
-- 
-  
- 
-
+- Test Bobert inside of a replica course made by the IEEE Hardware Team
 
 ## Architecture
 ### Hardware Overview
-1. Robotic Platform
+1. Bobert's Mechanical Platform:
+   - The form-factor is rectangular for ease and efficiency of mounting the rectangular internal components, the carriage is a tri-wheel design for maximal maneuverability  derived from a simple two-servo control scheme, and a top mounted arm for full range of motion above the robot body.
+2. Bobert's Electrical and Computational Hardware:
+
+3. Hardware Component Relationship Diagram:
+<p align="center">
+   <img src="./images/component_relationship_diagram.PNG" width="400">
+</p>
+ 
 
 ### Software Overview
 1. Tools Used & Their Purpose
