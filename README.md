@@ -63,9 +63,9 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
      - [jetson-inference](https://github.com/dusty-nv/jetson-inference): Provides a Nvidia Deep-Learning API, which we will employ via transfer learning for object identification.
      - Here 
 2. Relationship Diagram
-   - here
+   - In a PP somewhere
 3. Interfaces
-   - here
+   - BB diagram on ipad and add it here
 
 ### Responsibilities
 - Luke's Reponsibilites: 
