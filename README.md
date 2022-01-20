@@ -3,6 +3,28 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 - Luke Rouleau
 - Xuanhao Shi
 
+## Table of Contents
+1. [Design Goals](#design-goals)
+2. [Architecture](#architecture)
+3. [ROS2+Docker Approach](./ROS2_Docker_Implementation)
+   - **Depreciated:** This was a design attempt from which we've since pivoted away. 
+4. [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
+   - **Active:** This is the current path of development. 
+   - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
+
+### Design Goals
+
+### Architecture
+
+
+
+
+
+
+
+
+
+
 ## [ROS2-Docker Implementation](./ROS2_Docker_Implementation)
 Based entirely off of [Nvidia's example](https://github.com/dusty-nv/jetbot_ros)
 
