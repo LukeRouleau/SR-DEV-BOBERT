@@ -12,13 +12,44 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
    - **Active:** This is the current path of development. 
    - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
 
-### Design Goals
-**Top-Level Goal:** The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
+## Design Goals
+### Top-Level Goal:
+The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
 IEEE Hardware Team*, to compete at *IEEE SoutheastCon*.
 
-### Architecture
+### What are the objectives for IEEE Southeast Con?
+The objective of the competition is to autonomously clear an L-shaped track, whcih models a city corner, of debris (i.e., a marshmallow placed somewhere on the road) and to remove Mardi Gras-style bead necklaces from "trees" and deposit them into plastic cups. Most of the track remains static, but the location of the "trees" are random.
+
+### How does *Mission Control* plan to accomplish those goals?
+Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is that we will:
+- [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
+- Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
+- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS)
+```
+sudo apt-get install ros-$ROS_DISTRO-realsense2-camera
+```
+
+ 
 
 
+## Architecture
+### Hardware Overview
+### Software Overview
+1. Tools Used & Their Purpose
+   - Perception:
+     - **Intel RealSense Cameras:**  here
+     - **RealSense Wrappers and ROS Nodes:** here
+2. Relationship Diagram
+   - here
+3. Interfaces
+   - here
+
+### Responsibilities
+- Luke's Reponsibilites: 
+  - Preparation of the Nvidia Jetson Environment
+  - Creation the ROS environment
+  - Connecting perception (RealSense Cameras) to ROS
+- Xuanhao's Responsibilites:  
 
 
 
