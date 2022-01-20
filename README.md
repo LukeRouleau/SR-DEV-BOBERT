@@ -46,7 +46,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 
 3. Hardware Component Relationship Diagram:
 <p align="center">
-   <img src="./images/component_relationship_diagram.PNG" width="400">
+   <img src="./images/component_relationship_diagram.PNG" width="800">
 </p>
  
 
