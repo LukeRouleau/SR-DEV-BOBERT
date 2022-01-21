@@ -39,21 +39,21 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
   - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
   - [Create unit tests](./PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
 - [x] Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
-- [] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
+- [ ] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
 - [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
 - [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
   - Shown [here](./src/BobertLimits)
 - [x] Use the MoveIt! [Setup Assistant](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) to create configuration files to be used by the simulation
-- [] Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
+- [ ] Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
 - [x] Write the Bobert control package
   - Shown [here](./src/bobert_control)
 - [x] Write the simulation tests to test the control package
   - Included in the control package
-- [] **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
-- [] **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
-- [] Test Bobert inside of a replica course made by the IEEE Hardware Team
-- [] Integrate the whole hardware interface to the Teensy
+- [ ] **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
+- [ ] **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+- [ ] Test Bobert inside of a replica course made by the IEEE Hardware Team
+- [ ] Integrate the whole hardware interface to the Teensy
 
 ## Architecture
 ### Hardware Overview
