@@ -9,7 +9,8 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
    - [Hardware](#hardware-overview)
    - [Software](#software-overview)
 3. [Testing](#testing)
-4. [Repository Contents](#repository-contents)
+4. [Alpha Build Specifications](#alpha-build-specifications)
+5. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
      - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
@@ -103,13 +104,26 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
   - Creation the ROS environment
   - Connecting perception (RealSense Cameras) to ROS
 - Xuanhao's Responsibilites:  
-  - Link to his repo which includes his paper trail 
-
+  - [Link](https://github.com/x15000177/bobert_ws) to his repo which includes his paper trail 
 
 ## Testing
+Xuanhao's Test node, my rostest and test script
+Create metrics for a physical robot's performance
 
-
-
+## Alpha Build Specifications
+- Usability
+  - Interface
+  - Navigation
+  - Perception
+  - Responsiveness 
+- Build Quality
+  - Robustness
+  - Consistency
+  - Aesthetic Rigor 
+- Vertical Features
+  - External Interface
+  - Persistent State
+  - Internal Systems 
 
 
 # Repository Contents
