@@ -8,14 +8,15 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 2. [Architecture](#architecture)
    - [Hardware](#hardware-overview)
    - [Software](#software-overview)
-3. [Testing](#testing)
-4. [Alpha Build Specifications](#alpha-build-specifications)
-5. [Repository Contents](#repository-contents)
+3. [Individual Responsibilities](#responsibilities)
+4. [Testing](#testing)
+5. [Alpha Build Specifications](#alpha-build-specifications)
+6. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
    - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-6. [Progress Log](#progress-log)
+7. [Progress Log](#progress-log)
    
 ## Design Goals
 ### Top-Level Goal:
@@ -110,7 +111,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    <img src="./images/networking_diagram.PNG" width="600">
 </p>
 
-### Responsibilities
+## Responsibilities
 #### NOTE: 
 This repo, SR-DEV-BOBERT, serves as a central location of our software for the robot; HOWEVER, it has only been committed to by LUKE. Since, at this stage of development, the tasks XUANHAO and LUKE are working on are disjointed, we have **two separate repositories**, so individual contributions would not get muddled together. All of Xuanhao's work is present in this repo, but LUKE cloned his repo to his machine, copied it into this repo, and merged it. Thus, **the "paper trail" of this repo looks like only LUKE has contributed, and this is false. XUANHAO'S "paper trail" is indicated by the commit history to his reposity: [ACTUAL](https://github.com/x15000177/bobert_ws)** 
 - **XUANHAO is responsible for** all the code located inside this repo, "[LOCAL](./ROS_Melodic_Implementation/roboware_ros_ws/)", or XUANHAO'S actual individual repo, "[ACTUAL](https://github.com/x15000177/bobert_ws)".
