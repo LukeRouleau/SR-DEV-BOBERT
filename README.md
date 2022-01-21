@@ -6,16 +6,17 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 ## Table of Contents
 1. [Design Goals](#design-goals)
 2. [Architecture](#architecture)
-   a. [Hardware](#hardware-overview)
-   b. [Software](#software-overview)
+   - [Hardware](#hardware-overview)
+   - [Software](#software-overview)
 3. [Testing](#testing)
 4. [Repository Contents](#repository-contents)
-   a. [ROS2+Docker Approach](./ROS2_Docker_Implementation)
-      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-   b. [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
-      - **Active:** This is the current path of development. 
-      - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
-
+   - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
+     - **Active:** This is the current path of development. 
+     - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
+   - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
+     - **Depreciated:** This was a design attempt from which we've since pivoted away. 
+   
+   
 ## Design Goals
 ### Top-Level Goal:
 The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
