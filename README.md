@@ -139,7 +139,7 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
   - Interface: As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace.
 ROS Perception Interface
 <p align="center">
-   <img src="./images/d435_and_t265_rosgraph.png" width="1000">
+   <img src="./images/d435_and_t265_rosgraph.png" width="650">
 </p>
 ROS Control Interface
 <p align="center">
