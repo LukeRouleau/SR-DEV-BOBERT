@@ -101,9 +101,9 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    <img src="./images/moveIt_relationship_diagram.PNG" width="600">
 </p>
 3. Interfaces
-   - Black Box Diagram:
+   - Simple Autonomous Wheeled Robot (SAWR) ROS Boilerplate which serves as a functional block diagram for us:
 <p align="center">
-   <img src="./images/networking_diagram.PNG" width="600">
+   <img src="./images/sawr_ros_boilerplate.PNG" width="600">
 </p>   
    - Networking Diagram:
 <p align="center">
