@@ -135,8 +135,8 @@ Create metrics for a physical robot's performance
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
 
-- Usability
-  - **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace.
+### Usability
+- **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace.
 1. ROS Perception Interface
 <p align="center">
    <img src="./images/d435_and_t265_rosgraph.png" width="650">
@@ -146,17 +146,17 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
    <img src="./images/ros_control_graph.PNG" width="1000">
 </p>
  
-  - **Navigation:** Since there is no user interface, navigation of that interface does not directly apply. In the sense that we, the developers, are the users (until an autonomous product is delivered), the ROS command line interface is how we can navigate our solution. Specifically, we can call ```rqt``` to launch a GUI tool for visualiation plugins. For example, the ROS interface graphs shown above are accesible via ```rqt_graph```
-  - **Perception:**
-  - **Responsiveness:** 
-- Build Quality
-  - Robustness:
-  - Consistency:
-  - Aesthetic Rigor: 
-- Vertical Features
-  - External Interface:
-  - Persistent State:
-  - Internal Systems: 
+- **Navigation:** Since there is no user interface, navigation of that interface does not directly apply. In the sense that we, the developers, are the users (until an autonomous product is delivered), the ROS command line interface is how we can navigate our solution. Specifically, we can call ```rqt``` to launch a GUI tool for visualiation plugins. For example, the ROS interface graphs shown above are accesible via ```rqt_graph```
+- **Perception:** Since we do not have a deployable form, the final end-user perception is unimplemented. However, we know the design will be a push button to start the autonomous functionality. Pushing the button will start a ros launch file for our final solution package: Button press triggers ```roslaunch bobert_package bobert_competition.launch``` to execute. 
+- **Responsiveness:** ROS manages hardware and software loads on the CPU. After having a deployable robot to test with, we can tune message passing frequency to reduce the load on the CPU if necessary; however, the Nvidia Jetson should be more than powerful enough to handle what we throw at it. Since we are mosly writing code to glue well-established open-source libraries together, we can assume that those code bases are optimized to a level where we could offer no further improvement ourselves.  
+### Build Quality
+- **Robustness:** Now that we have fully transitioned to using ROS rather than ROS2, we have been able to quickly and easily install all the required libraries and their dependencies since ROS is natively supported. This means that the bulk of all the code that will power Bobert is compiled on the Jetson, and we are making our "glue" code, in the form of ROS packages, to tie it together. However, we do not have a fully deployable robot, so we cannot say that the robot functions in a regular use context. We do not feel this criteria accurately maps to our project.  
+- **Consistency:** The systems that we have the ability to start are reliable. For example, to spawn our ROS perception nodes, we just run ```roslaunch realsense2_camera rs_d400_and_t265.launch```. However, we again do not have a deployable robot, and the robot has not been trained on images of the targets, so there is no expected behavior yet.
+- **Aesthetic Rigor:** The robot's platform components have come in from a fab-site today (1/21), but it is not yet assembled. It will be soon, assembled by the IEEE Hardware Team. 
+### Vertical Features
+- **External Interface:** 
+- **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
+- **Internal Systems:** 
 
 
 # Repository Contents
