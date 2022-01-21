@@ -154,9 +154,9 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 - **Consistency:** The systems that we have the ability to start are reliable. For example, to spawn our ROS perception nodes, we just run ```roslaunch realsense2_camera rs_d400_and_t265.launch```. However, we again do not have a deployable robot, and the robot has not been trained on images of the targets, so there is no expected behavior yet.
 - **Aesthetic Rigor:** The robot's platform components have come in from a fab-site today (1/21), but it is not yet assembled. It will be soon, assembled by the IEEE Hardware Team. 
 ### Vertical Features
-- **External Interface:** 
+- **External Interface:** To the best of our ability, we have implemented some *basic* functionality on the hardware of every component. The Nvidia Jetson has ROS and a ROS environemnt, has the RealSense drivers and can read from the RealSense cameras, and provides their data on ROS topics. The Teensy has basic servo driver code implemented, and has a ROS node library to interpret the geometry_twist messages that will eventually be sent out from the Jetson after SLAM and planning is performed. The robot arm has yet to be fully assembled by the Hardware team, but the individual servos have been tested, and we have create a URDF file from scratch so we can simulate the arm in the meantime. The URDF file allows us to view the arm in Rviz so that we can continue to develop the servo hardware interface.   
 - **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
-- **Internal Systems:** 
+- **Internal Systems:** ROS has been FINISH
 
 
 # Repository Contents
