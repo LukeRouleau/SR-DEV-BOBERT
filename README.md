@@ -132,6 +132,10 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 Xuanhao's Test node, my rostest and test script
 Create metrics for a physical robot's performance
 
+<p align="center">
+   <img src="./images/robotic_testing.PNG" width="400">
+</p>
+
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
 
