@@ -156,7 +156,10 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 ### Vertical Features
 - **External Interface:** To the best of our ability, we have implemented some *basic* functionality on the hardware of every component. The Nvidia Jetson has ROS and a ROS environemnt, has the RealSense drivers and can read from the RealSense cameras, and provides their data on ROS topics. The Teensy has basic servo driver code implemented, and has a ROS node library to interpret the geometry_twist messages that will eventually be sent out from the Jetson after SLAM and planning is performed. The robot arm has yet to be fully assembled by the Hardware team, but the individual servos have been tested, and we have create a URDF file from scratch so we can simulate the arm in the meantime. The URDF file allows us to view the arm in Rviz so that we can continue to develop the servo hardware interface.   
 - **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
-- **Internal Systems:** ROS has been FINISH
+- **Internal Systems:** ROS, which is where we will perform data processing, has a launchable environment implemented. The majority of the work thus far has been in connecting the hardware components to the software, but using the "occupancy" model from the RealSense SDK, by calling ```roslaunch occupancy occupancy_live_rviz.launch``` , we can create an occupancy map of current room. By coupling this map with odometry information from the tracking camera, this is how Bobert will be able to identify where it is on the competition course.
+<p align="center">
+   <img src="./images/occupancy.GIF" width="600">
+</p>
 
 
 # Repository Contents
