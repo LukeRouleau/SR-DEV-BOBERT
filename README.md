@@ -83,6 +83,10 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 <p align="center">
    <img src="./images/software_relationship_diagram.PNG" width="600">
 </p>
+   - Arm control sub-system diagram:
+<p align="center">
+   <img src="./images/moveIt_relationship_diagram.PNG" width="400">
+</p>
 3. Interfaces
    - Black Box Diagram:
 <p align="center">
