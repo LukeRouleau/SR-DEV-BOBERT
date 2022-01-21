@@ -133,7 +133,7 @@ Xuanhao's Test node, my rostest and test script
 Create metrics for a physical robot's performance
 
 <p align="center">
-   <img src="./images/robotic_testing.PNG" width="400">
+   <img src="./images/robotic_testing.png" width="400">
 </p>
 
 ## Alpha Build Specifications
