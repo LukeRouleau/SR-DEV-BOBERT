@@ -114,12 +114,12 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 ### Responsibilities
 #### NOTE: 
 This repo, SR-DEV-BOBERT, serves as a central location of our software for the robot; HOWEVER, it has only been committed to by LUKE. Since, at this stage of development, the tasks XUANHAO and LUKE are working on are disjointed, we have **two separate repositories**, so individual contributions would not get muddled together. All of Xuanhao's work is present in this repo, but LUKE cloned his repo to his machine, copied it into this repo, and merged it. Thus, **the "paper trail" of this repo looks like only LUKE has contributed, and this is false**. 
-- **XUANHAO is responsible for** all the code [HERE](./ROS_Melodic_Implementation/roboware_ros_ws/) (located inside this repo), or [HERE](https://github.com/x15000177/bobert_ws) (XUANHAO'S actual individual repo) 
-  - XUANHAO'S "paper trail" is indicated by the commit history to [his reposity](https://github.com/x15000177/bobert_ws)   
-  - MoveIt! installation and [simulation config file creation](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config)
-  - Creation of the [URDF file](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config) necessary to model in MoveIt!
+- **XUANHAO is responsible for** all the code [HERE](./ROS_Melodic_Implementation/roboware_ros_ws/) (located inside this repo, "LOCAL"), or [HERE](https://github.com/x15000177/bobert_ws) (XUANHAO'S actual individual repo, "ACTUAL") 
+  - XUANHAO'S "paper trail" is indicated by the commit history to his reposity: [ACTUAL](https://github.com/x15000177/bobert_ws)   
+  - MoveIt! installation and simulation config file creation [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_moveit_config) [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config)
+  - Creation of the URDF file [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/BobertLimits/urdf) [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config) necessary to model in MoveIt!
   - Make the workspace RoboWare compatible
-  - Write the ROS control namespace (ros_control) and simulation test to verify the [control package](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_control)
+  - Write the ROS control namespace (ros_control) and simulation test to verify the control package [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_control) [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_control)
 - **LUKE is reponsible for** all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/) folder inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/)
   - Preparation of the Nvidia Jetson Environment (Jetpack flashing, ROS install)
   - Integration of the RealSense Cameras (driver, SDK, and ROS package install)
