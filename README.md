@@ -85,7 +85,9 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 </p>
 3. Interfaces
    - Black Box Diagram:
-   
+<p align="center">
+   <img src="./images/networking_diagram.PNG" width="600">
+</p>   
    - Networking Diagram:
 <p align="center">
    <img src="./images/networking_diagram.PNG" width="600">
