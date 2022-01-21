@@ -85,6 +85,8 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    - Visualization and Simulation:
      - [Rviz](http://wiki.ros.org/rviz): a visualization tool to view complex data (spacial data), check component models. Used to answer the question, "What does the robot see?"
      - [Gazebo](http://gazebosim.org/): a simulation tool for "what should the robot see?" and "what should the robot do after seeing?". This tool is mainly used when physical testing/experimentation is not feasible, but we mostly plan to experiment in person on a mock track.
+   - Modelling:
+     - SolidWorks with URDF plug-in: a CAD program to create the CAD file and convert it to a URDF file for the robotic arm 
    - Inverse Kinematics:
      - [MoveIt](https://moveit.ros.org/): a tool that, given a URDF file for an arm, performs inverse kinematics, and motion planning for the robotic arm
    - Development Environemnt: 
@@ -112,18 +114,20 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 ### Responsibilities
 #### NOTE: 
 This repo, SR-DEV-BOBERT, serves as a central location of our software for the robot; HOWEVER, it has only been committed to by LUKE. Since, at this stage of development, the tasks XUANHAO and LUKE are working on are disjointed, we have **two separate repositories**, so individual contributions would not get muddled together. All of Xuanhao's work is present in this repo, but LUKE cloned his repo to his machine, copied it into this repo, and merged it. Thus, **the "paper trail" of this repo looks like only LUKE has contributed, and this is false**. 
-- XUANHAO is responsible for all the code [HERE](./ROS_Melodic_Implementation/roboware_ros_ws/) (located inside this repo), or [HERE](https://github.com/x15000177/bobert_ws) (XUANHAO'S actual individual repo) 
+- **XUANHAO is responsible for** all the code [HERE](./ROS_Melodic_Implementation/roboware_ros_ws/) (located inside this repo), or [HERE](https://github.com/x15000177/bobert_ws) (XUANHAO'S actual individual repo) 
   - XUANHAO'S "paper trail" is indicated by the commit history to [his reposity](https://github.com/x15000177/bobert_ws)   
-- LUKE is reponsible for all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/) folder inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/). 
-
-- Luke's Reponsibilites: 
-  - Preparation of the Nvidia Jetson Environment
+  - MoveIt! installation and [simulation config file creation](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config)
+  - Creation of the [URDF file](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config) necessary to model in MoveIt!
+  - Make the workspace RoboWare compatible
+  - Write the ROS control namespace (ros_control) and simulation test to verify the [control package](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_control)
+- **LUKE is reponsible for** all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/) folder inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/)
+  - Preparation of the Nvidia Jetson Environment (Jetpack flashing, ROS install)
   - Integration of the RealSense Cameras (driver, SDK, and ROS package install)
+  - Installation and building of [jetson_inference](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/jetson_dev/jetson_inference) models for future transfer learning to identify our targets  
   - Creation the ROS scan/perception namespace (the nodes related to sensor input)
   - Connecting perception (RealSense Cameras) to ROS and verification of message passing
   - **Next Major Task:** Developing the SLAM namespace (ros_mapping), the navigation namespace (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao.  
-- Xuanhao's Responsibilites:  
-  - [Link](https://github.com/x15000177/bobert_ws) to his repo which includes his paper trail 
+
 
 ## Testing
 Xuanhao's Test node, my rostest and test script
