@@ -3,6 +3,6 @@ prefix=/home/steffen/bobert_ws/devel
 Name: bobert_control
 Description: Description of bobert_control
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/steffen/bobert_ws/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_runtime

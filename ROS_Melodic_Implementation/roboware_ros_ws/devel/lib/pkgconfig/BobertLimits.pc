@@ -1,0 +1,8 @@
+prefix=/home/steffen/bobert_ws/devel
+
+Name: BobertLimits
+Description: Description of BobertLimits
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

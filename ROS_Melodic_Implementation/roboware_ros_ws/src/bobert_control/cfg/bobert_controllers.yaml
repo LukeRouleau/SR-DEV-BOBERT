@@ -1,0 +1,30 @@
+# For ros_control control loop
+generic_hw_control_loop:
+  loop_hz: 200
+  cycle_time_error_threshold: 0.01
+
+# For ros_control hardware interface used in generic_hw_interface.cpp
+hardware_interface:
+  joints:
+    - Servo_Joint_1
+    - Servo_Joint_2
+    - Servo_Joint_3
+    - Servo_Joint_4
+    - Servo_Joint_5
+    - End_Effector_Joint
+
+# Creates /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 200
+
+# Joint Trajectory Controller
+position_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - Servo_Joint_1
+    - Servo_Joint_2
+    - Servo_Joint_3
+    - Servo_Joint_4
+    - Servo_Joint_5
+    - End_Effector_Joint

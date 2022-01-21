@@ -18,6 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/steffen/bobert_ws/devel/include"
   "/home/steffen/bobert_ws/src/bobert_control/include"
   "/home/steffen/bobert_ws/src/ros_control_boilerplate/include"
   "/opt/ros/melodic/include"

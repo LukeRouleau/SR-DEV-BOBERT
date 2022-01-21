@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="BobertLimits">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.041 0.045 0.049"
+        rpy="0 0 0" />
+      <mass
+        value="0.72324" />
+      <inertia
+        ixx="0.00106702008"
+        ixy="1.44108538759532E-19"
+        ixz="-6.1033189982527E-36"
+        iyy="0.00098408856"
+        iyz="-5.5502882758546E-21"
+        izz="0.00089344248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Servo_Link_1">
+    <inertial>
+      <origin
+        xyz="0.000249999999999632 0.0125 2.42861286636753E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.03125" />
+      <inertia
+        ixx="8.13802083333334E-06"
+        ixy="-1.38867814673641E-22"
+        ixz="-1.05879118406788E-22"
+        iyy="8.13802083333334E-06"
+        iyz="1.83961513767387E-22"
+        izz="3.25520833333333E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Servo_Joint_1"
+    type="revolute">
+    <origin
+      xyz="0.045 0.055 0.098"
+      rpy="1.5708 0 1.8902" />
+    <parent
+      link="base_link" />
+    <child
+      link="Servo_Link_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Servo_Link_2">
+    <inertial>
+      <origin
+        xyz="0.0525 2.56739074444567E-16 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.17875" />
+      <inertia
+        ixx="5.43697916666667E-05"
+        ixy="8.470329472543E-21"
+        ixz="3.89635155736978E-20"
+        iyy="0.000261049479166666"
+        iyz="1.35525271560688E-20"
+        izz="0.000296799479166667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Servo_Joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0.0125 0"
+      rpy="1.5708 0 0.98026" />
+    <parent
+      link="Servo_Link_1" />
+    <child
+      link="Servo_Link_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Servo_Link_3">
+    <inertial>
+      <origin
+        xyz="0.0484999999999999 -1.59594559789866E-16 1.38777878078145E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.16775" />
+      <inertia
+        ixx="5.10239583333333E-05"
+        ixy="2.37169225231204E-20"
+        ixz="2.62580213648833E-20"
+        iyy="0.000216802895833333"
+        iyz="1.6940658945086E-21"
+        izz="0.000250352895833333" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Servo_Joint_3"
+    type="revolute">
+    <origin
+      xyz="0.105 0 0"
+      rpy="-3.1416 -0.85218 0" />
+    <parent
+      link="Servo_Link_2" />
+    <child
+      link="Servo_Link_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Servo_Link_4">
+    <inertial>
+      <origin
+        xyz="0.0125000000000005 -3.67761376907083E-16 0.0125000000000005"
+        rpy="0 0 0" />
+      <mass
+        value="0.125" />
+      <inertia
+        ixx="5.20833333333333E-05"
+        ixy="2.5410988417629E-21"
+        ixz="-9.3173624197973E-21"
+        iyy="5.20833333333333E-05"
+        iyz="7.6232965252887E-21"
+        izz="5.20833333333333E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Servo_Joint_4"
+    type="revolute">
+    <origin
+      xyz="0.097 0 0"
+      rpy="-3.1416 -0.15815 0" />
+    <parent
+      link="Servo_Link_3" />
+    <child
+      link="Servo_Link_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Servo_Link_5">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -8.32667268468867E-17 -0.0455485642329055"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122400231173083" />
+      <inertia
+        ixx="5.9571570750398E-06"
+        ixy="1.32348898008484E-21"
+        ixz="1.24407964127975E-20"
+        iyy="8.58180385971075E-06"
+        iyz="-7.6232965252887E-21"
+        izz="2.64521129851044E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/Servo_Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Servo_Joint_5"
+    type="revolute">
+    <origin
+      xyz="0.030051 0 0.0125"
+      rpy="-1.5708 0.07747 1.5708" />
+    <parent
+      link="Servo_Link_4" />
+    <child
+      link="Servo_Link_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="End_Effector_Link">
+    <inertial>
+      <origin
+        xyz="0.0368160588340452 0.00317499999999993 -0.0458585223703533"
+        rpy="0 0 0" />
+      <mass
+        value="0.0235003229615022" />
+      <inertia
+        ixx="2.91780359103134E-05"
+        ixy="-2.20228566286118E-20"
+        ixz="9.84316018531001E-06"
+        iyy="4.32505953510363E-05"
+        iyz="3.44636530414093E-20"
+        izz="1.41120424312485E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/End_Effector_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://BobertLimits/meshes/End_Effector_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="End_Effector_Joint"
+    type="revolute">
+    <origin
+      xyz="-0.0127 0 -0.045549"
+      rpy="0 0.45879 0" />
+    <parent
+      link="Servo_Link_5" />
+    <child
+      link="End_Effector_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

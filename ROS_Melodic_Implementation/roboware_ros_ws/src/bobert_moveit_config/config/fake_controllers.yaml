@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_manipulator_controller
+    type: $(arg execution_type)
+    joints:
+      - Servo_Joint_1
+      - Servo_Joint_2
+      - Servo_Joint_3
+      - Servo_Joint_4
+      - Servo_Joint_5
+  - name: fake_gripper_controller
+    type: $(arg execution_type)
+    joints:
+      - End_Effector_Joint
+initial:  # Define initial robot poses.
+  - group: manipulator
+    pose: stand
+  - group: gripper
+    pose: stand

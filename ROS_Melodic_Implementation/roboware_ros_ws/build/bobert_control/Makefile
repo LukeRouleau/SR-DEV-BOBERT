@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/steffen/bobert_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -79,27 +67,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -124,6 +91,28 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -134,6 +123,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,66 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_gencpp.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_gencpp.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_gencpp.dir/rule
+
+# Convenience name for target.
+bobert_control_gencpp: bobert_control/CMakeFiles/bobert_control_gencpp.dir/rule
+
+.PHONY : bobert_control_gencpp
+
+# fast build rule for target.
+bobert_control_gencpp/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_gencpp.dir/build.make bobert_control/CMakeFiles/bobert_control_gencpp.dir/build
+.PHONY : bobert_control_gencpp/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages_cpp: bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/rule
+
+.PHONY : bobert_control_generate_messages_cpp
+
+# fast build rule for target.
+bobert_control_generate_messages_cpp/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages_cpp.dir/build
+.PHONY : bobert_control_generate_messages_cpp/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages_eus: bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/rule
+
+.PHONY : bobert_control_generate_messages_eus
+
+# fast build rule for target.
+bobert_control_generate_messages_eus/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages_eus.dir/build
+.PHONY : bobert_control_generate_messages_eus/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages: bobert_control/CMakeFiles/bobert_control_generate_messages.dir/rule
+
+.PHONY : bobert_control_generate_messages
+
+# fast build rule for target.
+bobert_control_generate_messages/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages.dir/build
+.PHONY : bobert_control_generate_messages/fast
+
+# Convenience name for target.
 bobert_control/CMakeFiles/bobert_hw_main.dir/rule:
 	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_hw_main.dir/rule
 .PHONY : bobert_control/CMakeFiles/bobert_hw_main.dir/rule
@@ -181,6 +241,156 @@ bobert_hw_main: bobert_control/CMakeFiles/bobert_hw_main.dir/rule
 bobert_hw_main/fast:
 	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_hw_main.dir/build.make bobert_control/CMakeFiles/bobert_hw_main.dir/build
 .PHONY : bobert_hw_main/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/rule
+.PHONY : bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/rule
+
+# Convenience name for target.
+_bobert_control_generate_messages_check_deps_bobertTelemetry: bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/rule
+
+.PHONY : _bobert_control_generate_messages_check_deps_bobertTelemetry
+
+# fast build rule for target.
+_bobert_control_generate_messages_check_deps_bobertTelemetry/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/build.make bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_bobertTelemetry.dir/build
+.PHONY : _bobert_control_generate_messages_check_deps_bobertTelemetry/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_sim_echo.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_sim_echo.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_sim_echo.dir/rule
+
+# Convenience name for target.
+bobert_sim_echo: bobert_control/CMakeFiles/bobert_sim_echo.dir/rule
+
+.PHONY : bobert_sim_echo
+
+# fast build rule for target.
+bobert_sim_echo/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_sim_echo.dir/build.make bobert_control/CMakeFiles/bobert_sim_echo.dir/build
+.PHONY : bobert_sim_echo/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_geneus.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_geneus.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_geneus.dir/rule
+
+# Convenience name for target.
+bobert_control_geneus: bobert_control/CMakeFiles/bobert_control_geneus.dir/rule
+
+.PHONY : bobert_control_geneus
+
+# fast build rule for target.
+bobert_control_geneus/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_geneus.dir/build.make bobert_control/CMakeFiles/bobert_control_geneus.dir/build
+.PHONY : bobert_control_geneus/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages_lisp: bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/rule
+
+.PHONY : bobert_control_generate_messages_lisp
+
+# fast build rule for target.
+bobert_control_generate_messages_lisp/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages_lisp.dir/build
+.PHONY : bobert_control_generate_messages_lisp/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_genlisp.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_genlisp.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_genlisp.dir/rule
+
+# Convenience name for target.
+bobert_control_genlisp: bobert_control/CMakeFiles/bobert_control_genlisp.dir/rule
+
+.PHONY : bobert_control_genlisp
+
+# fast build rule for target.
+bobert_control_genlisp/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_genlisp.dir/build.make bobert_control/CMakeFiles/bobert_control_genlisp.dir/build
+.PHONY : bobert_control_genlisp/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages_nodejs: bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/rule
+
+.PHONY : bobert_control_generate_messages_nodejs
+
+# fast build rule for target.
+bobert_control_generate_messages_nodejs/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages_nodejs.dir/build
+.PHONY : bobert_control_generate_messages_nodejs/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_genpy.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_genpy.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_genpy.dir/rule
+
+# Convenience name for target.
+bobert_control_genpy: bobert_control/CMakeFiles/bobert_control_genpy.dir/rule
+
+.PHONY : bobert_control_genpy
+
+# fast build rule for target.
+bobert_control_genpy/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_genpy.dir/build.make bobert_control/CMakeFiles/bobert_control_genpy.dir/build
+.PHONY : bobert_control_genpy/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/rule
+.PHONY : bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/rule
+
+# Convenience name for target.
+_bobert_control_generate_messages_check_deps_armCmd: bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/rule
+
+.PHONY : _bobert_control_generate_messages_check_deps_armCmd
+
+# fast build rule for target.
+_bobert_control_generate_messages_check_deps_armCmd/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/build.make bobert_control/CMakeFiles/_bobert_control_generate_messages_check_deps_armCmd.dir/build
+.PHONY : _bobert_control_generate_messages_check_deps_armCmd/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_gennodejs.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_gennodejs.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_gennodejs.dir/rule
+
+# Convenience name for target.
+bobert_control_gennodejs: bobert_control/CMakeFiles/bobert_control_gennodejs.dir/rule
+
+.PHONY : bobert_control_gennodejs
+
+# fast build rule for target.
+bobert_control_gennodejs/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_gennodejs.dir/build.make bobert_control/CMakeFiles/bobert_control_gennodejs.dir/build
+.PHONY : bobert_control_gennodejs/fast
+
+# Convenience name for target.
+bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/rule:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f CMakeFiles/Makefile2 bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/rule
+.PHONY : bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/rule
+
+# Convenience name for target.
+bobert_control_generate_messages_py: bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/rule
+
+.PHONY : bobert_control_generate_messages_py
+
+# fast build rule for target.
+bobert_control_generate_messages_py/fast:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/build.make bobert_control/CMakeFiles/bobert_control_generate_messages_py.dir/build
+.PHONY : bobert_control_generate_messages_py/fast
 
 src/bobert_hw_interface.o: src/bobert_hw_interface.cpp.o
 
@@ -236,26 +446,70 @@ src/bobert_hw_main.cpp.s:
 	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_hw_main.dir/build.make bobert_control/CMakeFiles/bobert_hw_main.dir/src/bobert_hw_main.cpp.s
 .PHONY : src/bobert_hw_main.cpp.s
 
+src/bobert_sim_echo.o: src/bobert_sim_echo.cpp.o
+
+.PHONY : src/bobert_sim_echo.o
+
+# target to build an object file
+src/bobert_sim_echo.cpp.o:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_sim_echo.dir/build.make bobert_control/CMakeFiles/bobert_sim_echo.dir/src/bobert_sim_echo.cpp.o
+.PHONY : src/bobert_sim_echo.cpp.o
+
+src/bobert_sim_echo.i: src/bobert_sim_echo.cpp.i
+
+.PHONY : src/bobert_sim_echo.i
+
+# target to preprocess a source file
+src/bobert_sim_echo.cpp.i:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_sim_echo.dir/build.make bobert_control/CMakeFiles/bobert_sim_echo.dir/src/bobert_sim_echo.cpp.i
+.PHONY : src/bobert_sim_echo.cpp.i
+
+src/bobert_sim_echo.s: src/bobert_sim_echo.cpp.s
+
+.PHONY : src/bobert_sim_echo.s
+
+# target to generate assembly for a file
+src/bobert_sim_echo.cpp.s:
+	cd /home/steffen/bobert_ws/build && $(MAKE) -f bobert_control/CMakeFiles/bobert_sim_echo.dir/build.make bobert_control/CMakeFiles/bobert_sim_echo.dir/src/bobert_sim_echo.cpp.s
+.PHONY : src/bobert_sim_echo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... test"
-	@echo "... list_install_components"
-	@echo "... bobert_hw_main"
 	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... bobert_control_gencpp"
+	@echo "... bobert_control_generate_messages_cpp"
+	@echo "... install/strip"
+	@echo "... bobert_control_generate_messages_eus"
+	@echo "... bobert_control_generate_messages"
+	@echo "... bobert_hw_main"
+	@echo "... _bobert_control_generate_messages_check_deps_bobertTelemetry"
+	@echo "... bobert_sim_echo"
+	@echo "... list_install_components"
+	@echo "... bobert_control_geneus"
+	@echo "... bobert_control_generate_messages_lisp"
+	@echo "... bobert_control_genlisp"
+	@echo "... bobert_control_generate_messages_nodejs"
 	@echo "... rebuild_cache"
+	@echo "... bobert_control_genpy"
+	@echo "... test"
+	@echo "... _bobert_control_generate_messages_check_deps_armCmd"
+	@echo "... bobert_control_gennodejs"
+	@echo "... bobert_control_generate_messages_py"
 	@echo "... src/bobert_hw_interface.o"
 	@echo "... src/bobert_hw_interface.i"
 	@echo "... src/bobert_hw_interface.s"
 	@echo "... src/bobert_hw_main.o"
 	@echo "... src/bobert_hw_main.i"
 	@echo "... src/bobert_hw_main.s"
+	@echo "... src/bobert_sim_echo.o"
+	@echo "... src/bobert_sim_echo.i"
+	@echo "... src/bobert_sim_echo.s"
 .PHONY : help
 
 

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: BobertLimits
+    relative_path: urdf/BobertLimits.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/BobertLimits.srdf
+  CONFIG:
+    author_name: Bryce Shi
+    author_email: x15000177@gmail.com
+    generated_timestamp: 1642740545

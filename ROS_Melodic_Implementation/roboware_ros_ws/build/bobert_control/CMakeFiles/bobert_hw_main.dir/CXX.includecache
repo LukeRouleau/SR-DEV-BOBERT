@@ -6,8 +6,44 @@
 
 #IncludeRegexTransform: 
 
+/home/steffen/bobert_ws/devel/include/bobert_control/armCmd.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/steffen/bobert_ws/devel/include/bobert_control/bobertTelemetry.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/steffen/bobert_ws/src/bobert_control/include/bobert_control/bobert_hw_interface.h
 ros_control_boilerplate/generic_hw_interface.h
+-
+bobert_control/armCmd.h
+-
+bobert_control/bobertTelemetry.h
 -
 
 /home/steffen/bobert_ws/src/bobert_control/src/bobert_hw_interface.cpp

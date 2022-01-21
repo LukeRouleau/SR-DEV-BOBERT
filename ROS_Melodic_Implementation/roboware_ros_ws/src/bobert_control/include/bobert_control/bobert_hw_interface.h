@@ -3,6 +3,8 @@
 #define BOBERT_HW_INTERFACE_H
 
 #include <ros_control_boilerplate/generic_hw_interface.h>
+#include <bobert_control/armCmd.h>
+#include <bobert_control/bobertTelemetry.h>
 
 namespace bobert_ns
 {
@@ -29,6 +31,11 @@ public:
   virtual void enforceLimits(ros::Duration& period);
 
 protected:
+  
+  ros::Subscriber telemetry_sub;
+  void telemetryCallback(const bobert_control::bobertTelemetry::ConstPtr &msg);
+
+  ros::Publisher cmd_pub;
   
 
 };  // class

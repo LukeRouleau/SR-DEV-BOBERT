@@ -68,4 +68,5 @@
 <exec_depend>urdf</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 <exec_depend>ros_control_boilerplate</exec_depend>
+<exec_depend>message_runtime</exec_depend>
 </package>

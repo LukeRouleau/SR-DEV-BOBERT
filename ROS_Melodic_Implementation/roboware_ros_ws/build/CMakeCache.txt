@@ -23,6 +23,18 @@ BUILD_GTEST:BOOL=OFF
 //Build shared libraries (DLLs).
 BUILD_SHARED_LIBS:BOOL=ON
 
+//Value Computed by CMake
+BobertClamp_BINARY_DIR:STATIC=/home/steffen/bobert_ws/build/BobertClamp
+
+//Value Computed by CMake
+BobertClamp_SOURCE_DIR:STATIC=/home/steffen/bobert_ws/src/BobertClamp
+
+//Value Computed by CMake
+BobertLimits_BINARY_DIR:STATIC=/home/steffen/bobert_ws/build/BobertLimits
+
+//Value Computed by CMake
+BobertLimits_SOURCE_DIR:STATIC=/home/steffen/bobert_ws/src/BobertLimits
+
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
 
@@ -302,6 +314,12 @@ bobert_control_BINARY_DIR:STATIC=/home/steffen/bobert_ws/build/bobert_control
 //Value Computed by CMake
 bobert_control_SOURCE_DIR:STATIC=/home/steffen/bobert_ws/src/bobert_control
 
+//Value Computed by CMake
+bobert_moveit_config_BINARY_DIR:STATIC=/home/steffen/bobert_ws/build/bobert_moveit_config
+
+//Value Computed by CMake
+bobert_moveit_config_SOURCE_DIR:STATIC=/home/steffen/bobert_ws/src/bobert_moveit_config
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 
@@ -462,6 +480,9 @@ roscpp_traits_DIR:PATH=/opt/ros/melodic/share/roscpp_traits/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/melodic/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslaunch.
+roslaunch_DIR:PATH=/opt/ros/melodic/share/roslaunch/cmake
+
 //The directory containing a CMake configuration file for roslib.
 roslib_DIR:PATH=/opt/ros/melodic/share/roslib/cmake
 
@@ -608,7 +629,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
