@@ -31,29 +31,29 @@ The objective of the competition is to autonomously clear an L-shaped track, whi
 
 ### How does *Mission Control* plan to accomplish those goals?
 Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel RealSense Depth and Tracking Cameras, and a servo-controlled 6 degree-of-freedom arm), we plan to connect the pieces of the autonomous robotic puzzle (perception, processing, actuation) with ROS Meloldic Middleware. What this really means is:
-- [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
-- Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
-- Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
+- [x] [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on the Nvidia Jetson Nano
+- [x] Install [Intel's drivers](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md) to access the RealSense camera feeds inside of the /dev directory of Linux
+- [x] Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
   - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
-- Create a ROS workspace in which a master node, camera nodes and topics, are created
+- [x] Create a ROS workspace in which a master node, camera nodes and topics, are created
   - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
   - [Create unit tests](./PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
-- Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
-- Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
-- Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
-- Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
-- Generate a URDF file for our 6 DOF robotic arm from a CAD model
+- [x] Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
+- [] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
+- [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
+- [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
+- [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
   - Shown [here](./src/BobertLimits)
-- Use the MoveIt! [Setup Assistant](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) to create configuration files to be used by the simulation
-- Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
-- Write the Bobert control package
+- [x] Use the MoveIt! [Setup Assistant](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) to create configuration files to be used by the simulation
+- [] Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
+- [x] Write the Bobert control package
   - Shown [here](./src/bobert_control)
-- Write the simulation tests to test the control package
+- [x] Write the simulation tests to test the control package
   - Included in the control package
-- **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
-- **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
-- Test Bobert inside of a replica course made by the IEEE Hardware Team
-- Integrate the whole hardware interface to the Teensy
+- [] **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
+- [] **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+- [] Test Bobert inside of a replica course made by the IEEE Hardware Team
+- [] Integrate the whole hardware interface to the Teensy
 
 ## Architecture
 ### Hardware Overview
