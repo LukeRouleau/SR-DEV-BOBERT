@@ -158,7 +158,7 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 - **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
 - **Internal Systems:** ROS, which is where we will perform data processing, has a launchable environment implemented. The majority of the work thus far has been in connecting the hardware components to the software, but using the "occupancy" model from the RealSense SDK, by calling ```roslaunch occupancy occupancy_live_rviz.launch``` , we can create an occupancy map of current room. By coupling this map with odometry information from the tracking camera, this is how Bobert will be able to identify where it is on the competition course.
 <p align="center">
-   <img src="./images/occupancy.GIF" width="600">
+   <img src="./images/occupancy.gif" width="600">
 </p>
 
 
