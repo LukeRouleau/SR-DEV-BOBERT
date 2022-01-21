@@ -110,10 +110,18 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 </p>
 
 ### Responsibilities
+#### NOTE: 
+This repo, SR-DEV-BOBERT, serves as a central location of our software for the robot; HOWEVER, it has only been committed to by LUKE. Since, at this stage of development, the tasks XUANHAO and LUKE are working on are disjointed, we have **two separate repositories**, so individual contributions would not get muddled together. All of Xuanhao's work is present in this repo, but LUKE cloned his repo to his machine, copied it into this repo, and merged it. Thus, **the "paper trail" of this repo looks like only LUKE has contributed, and this is false**. 
+- XUANHAO is responsible for all the code [HERE](./ROS_Melodic_Implementation/roboware_ros_ws/) (located inside this repo), or [HERE](https://github.com/x15000177/bobert_ws) (XUANHAO'S actual individual repo) 
+  - XUANHAO'S "paper trail" is indicated by the commit history to [his reposity](https://github.com/x15000177/bobert_ws)   
+- LUKE is reponsible for all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/) folder inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/). 
+
 - Luke's Reponsibilites: 
   - Preparation of the Nvidia Jetson Environment
-  - Creation the ROS environment
-  - Connecting perception (RealSense Cameras) to ROS
+  - Integration of the RealSense Cameras (driver, SDK, and ROS package install)
+  - Creation the ROS scan/perception namespace (the nodes related to sensor input)
+  - Connecting perception (RealSense Cameras) to ROS and verification of message passing
+  - **Next Major Task:** Developing the SLAM namespace (ros_mapping), the navigation namespace (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao.  
 - Xuanhao's Responsibilites:  
   - [Link](https://github.com/x15000177/bobert_ws) to his repo which includes his paper trail 
 
