@@ -13,10 +13,9 @@ Team Mission Control's Repository for UF CpE Senior Design 2022
 5. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
-     - ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach.
    - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-   
+6. [Progress Log](#progress-log)
    
 ## Design Goals
 ### Top-Level Goal:
@@ -156,17 +155,25 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 ### Vertical Features
 - **External Interface:** To the best of our ability, we have implemented some *basic* functionality on the hardware of every component. The Nvidia Jetson has ROS and a ROS environemnt, has the RealSense drivers and can read from the RealSense cameras, and provides their data on ROS topics. The Teensy has basic servo driver code implemented, and has a ROS node library to interpret the geometry_twist messages that will eventually be sent out from the Jetson after SLAM and planning is performed. The robot arm has yet to be fully assembled by the Hardware team, but the individual servos have been tested, and we have create a URDF file from scratch so we can simulate the arm in the meantime. The URDF file allows us to view the arm in Rviz so that we can continue to develop the servo hardware interface.   
 - **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
-- **Internal Systems:** ROS, which is where we will perform data processing, has a launchable environment implemented. The majority of the work thus far has been in connecting the hardware components to the software, but using the "occupancy" model from the RealSense SDK, by calling ```roslaunch occupancy occupancy_live_rviz.launch``` , we can create an occupancy map of current room. By coupling this map with odometry information from the tracking camera, this is how Bobert will be able to identify where it is on the competition course.
+- **Internal Systems:** ROS, which is where we will perform data processing, has a launchable environment implemented. The majority of the work thus far has been in connecting the hardware components to the software, but using the "occupancy" model from the RealSense SDK, by calling ```roslaunch occupancy occupancy_live_rviz.launch``` , we can create an occupancy map of current room. By coupling this map with odometry information from the tracking camera, this is how Bobert will be able to identify where it is on the competition course. This functional instance stands in for the black-box of image processing (SLAM and path planning).
 <p align="center">
    <img src="./images/occupancy.gif" width="600">
 </p>
 
 
 # Repository Contents
-## [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
-Based entirely off of [Nvidia's example](https://github.com/dusty-nv/jetbot_ros/tree/melodic)
+1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
+Code here represents the current branch of development. ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach. It includes two subdirectories:
+   1. [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/): LUKE'S Responsibilities, the Jetson setup and ROS perception elements
+   2. [roboware_ros_ws](ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
+2. [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
+Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetson. We bit off more than we could chew with this, and as of 1/17/21, everything in this dirctory is no longer active nor will be added to in the future.
 
-### Goal:
+
+
+# Progress Log
+## [Native ROS Melodic Implementation: jetson_dev](./ROS_Melodic_Implementation/jetson_dev/)
+### 1. Goal:
 Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Jetson runs Ubuntu 18, ROS Melodic runs natively! Yay!
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Install ROS Melodic (Desktop-Full install) onto the Nvidia Jetson 
@@ -177,9 +184,29 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 - Built the [ROS Melodic Nodes](https://github.com/dusty-nv/ros_deep_learning) to interact with **jetson-inference** from our cameras.
 - [Connect the RealSense D435 and T265 cameras to the ROS environment, spawn their nodes.](./ROS_Melodic_Implementation/jetson_dev/images/d435_and_t265_rosgraph.png)
 - Connect the camera input to Rviz (click image for video):
-
  [![Connect the camera input to Rviz](https://img.youtube.com/vi/0Snpj9SjjzQ/0.jpg)](https://www.youtube.com/watch?v=0Snpj9SjjzQ)
 
+## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
+### 2. Goal:
+Writing the Bobert control package.
+### Steps Taken [as of Alpha Build 1/21/22]:
+- Set up MoveIt! on RoboWare.
+- Generated the URDF of the arm from the CAD model.
+- Made MoveIt! configuration files.
+- Wrote a majority of the src files for the arm model so that it can be loaded into RVIZ.
+- See [here](https://drive.google.com/file/d/1r5v7SpiCPZid2jlV856fBVjpEdzBG8-B/view?usp=sharing)
+
+### Issues Present [as of Alpha Build 1/21/22]:
+- The Bobert control package currently cannot recognize any of the joint controllers.
+- It also cannot load any messages being sent and received through the nodes.
+
+### 3. Goal:
+Writing the simulation tests.
+### Steps Taken [as of Alpha Build 1/21/22]:
+- Finished writing an echo node that will act as the Teensy board to subscribe and publish corresponding messages.
+
+### Issues Present [as of Alpha Build 1/21/22]:
+- The exact messages cannot be seen through the terminal due to some of the controllers are unable to be recognized.
 
 
 ## [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
