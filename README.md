@@ -66,22 +66,30 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    - Base OS:
      - [JetPack](https://developer.nvidia.com/embedded/jetpack): Which is Ubuntu 18.04, with modifications made by Nvidia to fully utilize the GPU on the Jetson Nano
    - Perception & Planning:
-     - **Intel RealSense SDK:** Exposes Open3D, TensorFlow, and OpenVINO packages, ROS Nodes, and install the hardware drivers for the T265 and D435 cameras 
+     - [Intel RealSense SDK](https://www.intelrealsense.com/sdk-2/): Exposes Open3D, TensorFlow, and OpenVINO packages, ROS Nodes, and install the hardware drivers for the T265 and D435 cameras 
      - [jetson-inference](https://github.com/dusty-nv/jetson-inference): Provides a Nvidia Deep-Learning API, which we will employ via transfer learning for object identification
    - Middleware: 
-     - ROS Melodic: Not really and OS, but a "glue" technology that manages and handles communication between robotic elements
+     - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu): Not really and OS, but a "glue" technology that manages and handles communication between robotic elements
    - Visualization and Simulation:
-     - Rviz: a visualization tool to view complex data (spacial data), check component models. Used to answer the question, "What does the robot see?"
-     - Gazebo: a simulation tool for "what should the robot see?" and "what should the robot do after seeing?". This tool is mainly used when physical testing/experimentation is not feasible, but we mostly plan to experiment in person on a mock track.
+     - [Rviz](http://wiki.ros.org/rviz): a visualization tool to view complex data (spacial data), check component models. Used to answer the question, "What does the robot see?"
+     - [Gazebo](http://gazebosim.org/): a simulation tool for "what should the robot see?" and "what should the robot do after seeing?". This tool is mainly used when physical testing/experimentation is not feasible, but we mostly plan to experiment in person on a mock track.
    - Inverse Kinematics:
-     - MoveIt!: a tool that, given a URDF file for an arm, performs inverse kinematics and path planning for the robotic arm
+     - [MoveIt](https://moveit.ros.org/): a tool that, given a URDF file for an arm, performs inverse kinematics, and motion planning for the robotic arm
    - Development Environemnt: 
-     - RoboWare: an IDE to set up the envrionment and organize all the source code (cfg files, include files, launch files, msg files, src files, CMakeLists, packages, etc.)
+     - [RoboWare](https://github.com/tonyrobotics/roboware-studio): an open-source IDE to set up the envrionment and organize all the source code (cfg files, include files, launch files, msg files, src files, CMakeLists, packages, etc.)
      
-2. Relationship Diagram
-   - In a PP somewhere
+2. Software Component Relationship Diagram
+   - Development tools that are present on desktop devices but not on the Nvidia Jetson (i.e. Gazebo, RoboWare) are excluded:
+<p align="center">
+   <img src="./images/software_relationship_diagram.PNG" width="600">
+</p>
 3. Interfaces
-   - BB diagram on ipad and add it here
+   - Black Box Diagram:
+   
+   - Networking Diagram:
+<p align="center">
+   <img src="./images/networking_diagram.PNG" width="600">
+</p>
 
 ### Responsibilities
 - Luke's Reponsibilites: 
