@@ -1,6 +1,5 @@
 # SR-DEV-BOBERT
-Team Mission Control's Repository for UF CpE Senior Design 2022
-URL: https://github.com/LukeRouleau/SR-DEV-BOBERT
+Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://github.com/LukeRouleau/SR-DEV-BOBERT
 - Luke Rouleau
 - Xuanhao Shi
 
