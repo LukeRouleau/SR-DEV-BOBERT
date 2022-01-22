@@ -142,6 +142,12 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - As such, inside RVIZ, we can add whatever planning group we want to modify on the arm, and then plan the path to communicate the information through the terminal in the same format as the ```./src/bobert_control/msg/```
 - In the future, we can add more complex msg structures and inputs from the simulated teensy node to be sent to the main hardware interface.
 
+### Testing the camera drivers
+- On a Jetson Nano with the Intel RealSense SDK installed, run ```realsense-viewer```
+  - If prompted to update the drivers on the cameras, do so
+- Turn on the camera feed toggle for the D435 and T265 cameras on the left-hand menu of the realsense-viewer application
+  - If you can see the camera streams, the camera drivers have been properly installed. 
+
 ### Testing the jetson_dev environment
 - Navigate to the catkin workspace inside of ROS_Melodic_Implementation/jetson_dev/catkin_ws
 - Source the workspace with ```source ./devel/setup.bash```
@@ -151,6 +157,8 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - Navigate to *Introspection > Node Graph* from the GUI dropdown menu
 - Verfiy that the node graph looks like the "ROS Perception Interface" under [Usability](#usability)
 - If it passes visible verification, then run ```roslaunch realsense2_camera rs_rtabmap.launch``` to perform 3D slam mapping, visible in Rviz. 
+  - Verify, by moving your RealSense camera array around your surroundings, that the SLAM functionality appears to be working.
+  - If so, you can definitively say image data is being passed through ROS messages properly.
 
 
 ## Alpha Build Specifications
