@@ -129,12 +129,30 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 
 
 ## Testing
-Xuanhao's Test node, my rostest and test script
-Create metrics for a physical robot's performance
+### Testing the bobert_control package
+- Currently, the test is embedded inside the src files for the bobert_control package.
+- To launch the project with tests, do the following:
+  - source the workspace with ```source ./devel/setup.bash```
+  - launch the main hardware interface ```roslaunch ./src/bobert_control/launch/bobert_HW_main.launch```
+- The main hardware interface will load the arm into the RVIZ and then subscribe to the ```/teensy/bobertTelemetry``` topic and publish the  current arm angles to ```/teensy/armCmd```
+- This interface will also load the testing node within ```./src/bobert_control/src/bobert_sim_echo.cpp```
+- This testing node will simulate a node that works like a teensy controller.
+- This testing node will subscribe to the ```/teensy/armCmd``` topic and echo the angle positions to ```/teensy/bobertTelemetry```
+- And thus we can use ```rostopic info``` to see the message about the joint controller between the hardware interface node and the teensy node.
+- As such, inside RVIZ, we can add whatever planning group we want to modify on the arm, and then plan the path to communicate the information through the terminal in the same format as the ```./src/bobert_control/msg/```
+- In the future, we can add more complex msg structures and inputs from the simulated teensy node to be sent to the main hardware interface.
 
-<p align="center">
-   <img src="./images/robotic_testing.png" width="400">
-</p>
+### Testing the jetson_dev environment
+- Navigate to the catkin workspace inside of ROS_Melodic_Implementation/jetson_dev/catkin_ws
+- Source the workspace with ```source ./devel/setup.bash```
+- Start roscore with ```roscore```
+- Start the camera node launch files with ```roslaunch realsense2_camera rs_d400_and_t265.launch```
+- Open the ROS visualization GUI by ```rqt``` in another terminal
+- Navigate to *Introspection > Node Graph* from the GUI dropdown menu
+- Verfiy that the node graph looks like the "ROS Perception Interface" under [Usability](#usability)
+- 
+- 
+
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
