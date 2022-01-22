@@ -150,8 +150,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - Open the ROS visualization GUI by ```rqt``` in another terminal
 - Navigate to *Introspection > Node Graph* from the GUI dropdown menu
 - Verfiy that the node graph looks like the "ROS Perception Interface" under [Usability](#usability)
-- 
-- 
+- If it passes visible verification, then run ```roslaunch realsense2_camera rs_rtabmap.launch``` to perform 3D slam mapping, visible in Rviz. 
 
 
 ## Alpha Build Specifications
