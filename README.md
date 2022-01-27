@@ -175,7 +175,14 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - Run the package ```rosrun using_markers basic_shapes```
 - Now, on the observer machine run rviz, and create a new "Markers Display". Set the fixed frame to '/my_frame'. 
 - If the remote visualization is setup, you should now be able to see the marker shapes in Rviz, changing at a rate of one per second.
-  - Success looks like [this](https://youtu.be/ktoTAFkJI9Q). 
+  - Success looks like [this](https://youtu.be/ktoTAFkJI9Q).
+  - Also, the networked ROS Graph should look something like this:
+
+![](./images/remote_rviz_connected.PNG)
+
+- Now test the remote IDE development connection by opening VSCode with the SSH package installed.
+- SSH into the Jetson from within VSCode.
+- Success means that the VSCode connect to the Jetson Filesystem and we should be able to navigate it, create new files, and run a terminal all inside of VSCode. 
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
@@ -211,7 +218,8 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
 Code here represents the current branch of development. ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach. It includes two subdirectories:
    1. [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/): LUKE'S Responsibilities, the Jetson setup and ROS perception elements
-   2. [roboware_ros_ws](ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
+   2. [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
+   3. [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws): LUKE'S Responsibilities, the test workspace used to verify the remote development and visualization connection
 2. [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
 Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetson. We bit off more than we could chew with this, and as of 1/17/21, everything in this dirctory is no longer active nor will be added to in the future.
 
@@ -233,8 +241,24 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 
 [![Connect the camera input to Rviz](https://img.youtube.com/vi/0Snpj9SjjzQ/0.jpg)](https://www.youtube.com/watch?v=0Snpj9SjjzQ)
 
-## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
+## [Native ROS Melodic Implementation: rviz_demo_ws](./ROS_Melodic_Implementation/jetson_dev/)
 ### 2. Goal:
+Setup the Jetson for wireless headless operation, connect to it via ssh for remote development, set up ROS networking for remote Rviz debugging.
+### Steps Taken [as of Alpha Build 1/21/22]:
+-N/A
+### Steps Taken [as of Beta Build xx/xx/22]:
+- Successfully installed wifi drivers on the Jetson for the [usb wifi dongle](https://forums.developer.nvidia.com/t/edimax-ew-78111un-v2-wifi-setup/165047/13) purchased.
+- Connect to the Jetson via SSH on observer device, on Ubuntu 18.04 VM on observer device, and on VSCode on observer device for remote development.
+- Downloaded ROS Melodic into the Ubuntu VM
+- Set the necessary environement variables in ~/.bashrc for desired ROS networking orientation (Jetson = Master, Laptop = Observer)
+  - Followed this [tutorial](https://yoraish.com/2021/09/08/a-full-autonomous-stack-a-tutorial-ros-raspberry-pi-arduino-slam/): an excellent source for much more than just networking setup.
+  - On the Master, ```export ROS_IP=MASTER_IP_ADDR``` and ```export ROS_MASTER_URI=http://MASTER_IP_ADDR:11311```. Use ```ifconfig``` to gather IP info, if necessary.
+  - On the Observer, ```export ROS_IP=OBSERVER_IP_ADDR``` and ```export ROS_MASTER_URI=http://MASTER_IP_ADDR:11311```.
+- Developed the rviz test package *using_markers* to verify that the jetson can pass ROS messages to the Observer device for visualizaition.
+  - Follow the steps [here under Tesing](#testing-rviz-and-remote-development-connections)
+
+## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
+### 3. Goal:
 Writing the Bobert control package.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Set up MoveIt! on RoboWare.
@@ -247,7 +271,7 @@ Writing the Bobert control package.
 - The Bobert control package currently cannot recognize any of the joint controllers.
 - It also cannot load any messages being sent and received through the nodes.
 
-### 3. Goal:
+### 4. Goal:
 Writing the simulation tests.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Finished writing an echo node that will act as the Teensy board to subscribe and publish corresponding messages.
