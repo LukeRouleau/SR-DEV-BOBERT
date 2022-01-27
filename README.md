@@ -227,7 +227,7 @@ Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetso
 
 # Progress Log
 ## [Native ROS Melodic Implementation: jetson_dev](./ROS_Melodic_Implementation/jetson_dev/)
-### 1. Goal:
+### Goal:
 Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Jetson runs Ubuntu 18, ROS Melodic runs natively! Yay!
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Install ROS Melodic (Desktop-Full install) onto the Nvidia Jetson 
@@ -242,7 +242,7 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 [![Connect the camera input to Rviz](https://img.youtube.com/vi/0Snpj9SjjzQ/0.jpg)](https://www.youtube.com/watch?v=0Snpj9SjjzQ)
 
 ## [Native ROS Melodic Implementation: rviz_demo_ws](./ROS_Melodic_Implementation/jetson_dev/)
-### 2. Goal:
+### Goal:
 Setup the Jetson for wireless headless operation, connect to it via ssh for remote development, set up ROS networking for remote Rviz debugging.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 -N/A
@@ -258,7 +258,7 @@ Setup the Jetson for wireless headless operation, connect to it via ssh for remo
   - Follow the steps [here under Tesing](#testing-rviz-and-remote-development-connections)
 
 ## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
-### 3. Goal:
+### Goal:
 Writing the Bobert control package.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Set up MoveIt! on RoboWare.
@@ -271,7 +271,7 @@ Writing the Bobert control package.
 - The Bobert control package currently cannot recognize any of the joint controllers.
 - It also cannot load any messages being sent and received through the nodes.
 
-### 4. Goal:
+### Goal:
 Writing the simulation tests.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 - Finished writing an echo node that will act as the Teensy board to subscribe and publish corresponding messages.
