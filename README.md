@@ -73,6 +73,11 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 <p align="center">
    <img src="./images/component_relationship_diagram.PNG" width="600">
 </p>
+
+- Wired Connection Diagram:
+<p align="center">
+   <img src="./images/networking_diagram.PNG" width="600">
+</p>
  
 
 ### Software Overview
@@ -108,9 +113,9 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 <p align="center">
    <img src="./images/sawr_ros_boilerplate.PNG" width="600">
 </p>   
-   - Networking Diagram:
+   - Wireless Networking Diagram:
 <p align="center">
-   <img src="./images/networking_diagram.PNG" width="600">
+   <img src="./images/wireless_connection_diagram.PNG" width="600">
 </p>
 
 ## Responsibilities
