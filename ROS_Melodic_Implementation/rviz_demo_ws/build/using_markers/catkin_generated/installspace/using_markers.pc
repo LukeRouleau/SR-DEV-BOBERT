@@ -1,0 +1,8 @@
+prefix=/home/luke/workspace/rviz_test_ws/install
+
+Name: using_markers
+Description: Description of using_markers
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

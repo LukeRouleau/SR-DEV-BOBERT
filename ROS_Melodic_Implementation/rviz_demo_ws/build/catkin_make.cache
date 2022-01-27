@@ -1,0 +1,2 @@
+using_markers
+-DCATKIN_DEVEL_PREFIX=/home/luke/workspace/rviz_test_ws/devel -DCMAKE_INSTALL_PREFIX=/home/luke/workspace/rviz_test_ws/install -G Unix Makefiles
