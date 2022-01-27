@@ -162,6 +162,20 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Verify, by moving your RealSense camera array around your surroundings, that the SLAM functionality appears to be working.
   - If so, you can definitively say image data is being passed through ROS messages properly.
 
+### Testing Jetson in Headless mode
+- Power on the Jetson with no keyboard, mouse, nor monitor connection. Make sure wifi dongle is plugged in. Wait 30-90 seconds.
+- LED indicator on dongle should be blinking/illuminated
+- On a remote device connected to the same wireless network, ```ssh user@hostname``` and enter the password. 
+- If the connection is successful, run ```ls``` and you can view the filesystem of the Jetson. **We will now use ssh to control the Jetson in headless mode.**
+- In remote development, the Jetson is considered the host/master device. My laptop is the observer. 
+
+### Testing Rviz and Remote Development Connections
+- SSH into the Jetson running in headless mode, and start ```roscore```. Since the Jetson is the master, this is where we want roscore running.
+- In another terminal, cd into (ROS_Melodic_Implemention)/rviz_demo_ws. Make sure you've make the package with ```catkin_make``` and have sourced the overlay with ```source ./devel/setup.bash```
+- Run the package ```rosrun using_markers basic_shapes```
+- Now, on the observer machine run rviz, and create a new "Markers Display". Set the fixed frame to '/my_frame'. 
+- If the remote visualization is setup, you should now be able to see the marker shapes in Rviz, changing at a rate of one per second.
+  - Success looks like [this](https://youtu.be/ktoTAFkJI9Q). 
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
