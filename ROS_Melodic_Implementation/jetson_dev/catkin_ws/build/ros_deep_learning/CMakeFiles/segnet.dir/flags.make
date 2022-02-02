@@ -6,5 +6,5 @@ CXX_DEFINES = -DROS1 -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DRO
 
 CXX_INCLUDES = -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/local/cuda/include
 
-CXX_FLAGS =  -std=c++11
+CXX_FLAGS =  -std=c++11 -O3 -DNDEBUG
 
