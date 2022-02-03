@@ -278,6 +278,9 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 </p>
 
 ## Alpha Test Report
+This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the alpha test plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf).
+
+
 
 # Progress Log
 ## [Native ROS Melodic Implementation: jetson_dev](./ROS_Melodic_Implementation/jetson_dev/)
