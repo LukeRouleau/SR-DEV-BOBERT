@@ -4,20 +4,31 @@ Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://gi
 - Xuanhao Shi
 
 ## Table of Contents
-1. [Design Goals](#design-goals)
-2. [Architecture](#architecture)
-   - [Hardware](#hardware-overview)
-   - [Software](#software-overview)
-3. [Individual Responsibilities](#responsibilities)
-4. [Testing](#testing)
-5. [~~Alpha~~ Beta Build Specifications](#alpha-beta-build-specifications)
-6. [Repository Contents](#repository-contents)
+1. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
    - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-7. [Progress Log](#progress-log)
+2. [Design Goals](#design-goals)
+3. [Architecture](#architecture)
+   - [Hardware](#hardware-overview)
+   - [Software](#software-overview)
+4. [Individual Responsibilities](#responsibilities)
+5. [Unit Testing](#unit-testing)
+6. [~~Alpha~~ Beta Build Specifications](#alpha-beta-build-specifications)
+7. [Alpha Test Report](#alpha-test-report)
+8. [Progress Log](#progress-log)
    
+## Repository Contents
+1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
+Code here represents the current branch of development. ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach. It includes two subdirectories:
+   1. [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/): LUKE'S Responsibilities, the Jetson setup and ROS perception elements
+   2. [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
+   3. [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws/): LUKE'S Responsibilities, the test workspace used to verify the remote development and visualization connection
+   4. [teensyduino](./ROS_Melodic_Implementation/teensyduino/): LUKE'S & XUANHAO'S Responsibilities, the Arduino sketches to be programmed on the Teensy 
+2. [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
+Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetson. We bit off more than we could chew with this, and as of 1/17/21, everything in this dirctory is no longer active nor will be added to in the future.
+
 ## Design Goals
 ### Top-Level Goal:
 The goal for our team, *Mission Control*, is to successfully program a robot named “Bobert”, designed and built by the *UF 
@@ -146,7 +157,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - **Next Major Task:** the navigation package from the standard ROS software stack (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao for execution of velocity messages. The navigation package containes the tasks of target identification, path planning, and obstacle avoidance.
 
 
-## Testing
+## Unit Testing
 ### Testing the bobert_control package
 - Currently, the test is embedded inside the src files for the bobert_control package.
 - To launch the project with tests, do the following:
@@ -266,17 +277,7 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
    <img src="./images/occupancy.gif" width="600">
 </p>
 
-# Repository Contents
-1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
-Code here represents the current branch of development. ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach. It includes two subdirectories:
-   1. [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/): LUKE'S Responsibilities, the Jetson setup and ROS perception elements
-   2. [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
-   3. [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws/): LUKE'S Responsibilities, the test workspace used to verify the remote development and visualization connection
-   4. [teensyduino](./ROS_Melodic_Implementation/teensyduino/): LUKE'S & XUANHAO'S Responsibilities, the Arduino sketches to be programmed on the Teensy 
-2. [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
-Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetson. We bit off more than we could chew with this, and as of 1/17/21, everything in this dirctory is no longer active nor will be added to in the future.
-
-
+## Alpha Test Report
 
 # Progress Log
 ## [Native ROS Melodic Implementation: jetson_dev](./ROS_Melodic_Implementation/jetson_dev/)
