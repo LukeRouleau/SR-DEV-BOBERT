@@ -92,10 +92,11 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
      - [jetson-inference](https://github.com/dusty-nv/jetson-inference): Provides a Nvidia Deep-Learning API, which we will employ via transfer learning for object identification
    - Middleware: 
      - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu): Not really and OS, but a "glue" technology that manages and handles communication between robotic elements
+     - [rosserial](http://wiki.ros.org/rosserial_arduino): rosserial is a protocol for wrapping standard ROS serialized messages and multiplexing multiple topics and services over a character device such as a serial port or network socket
    - Visualization and Simulation:
      - [Rviz](http://wiki.ros.org/rviz): a visualization tool to view complex data (spacial data), check component models. Used to answer the question, "What does the robot see?"
      - [Gazebo](http://gazebosim.org/): a simulation tool for "what should the robot see?" and "what should the robot do after seeing?". This tool is mainly used when physical testing/experimentation is not feasible, but we mostly plan to experiment in person on a mock track.
-   - Modelling:
+   - Modeling:
      - SolidWorks with URDF plug-in: a CAD program to create the CAD file and convert it to a URDF file for the robotic arm 
    - Inverse Kinematics:
      - [MoveIt](https://moveit.ros.org/): a tool that, given a URDF file for an arm, performs inverse kinematics, and motion planning for the robotic arm
