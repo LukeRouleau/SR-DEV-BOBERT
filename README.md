@@ -36,7 +36,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
   - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
 - [x] Create a ROS workspace in which a master node, camera nodes and topics, are created
-  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/catkin_ws/)
+  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/)
   - [Create unit tests](./PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
 - [x] Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
 - [x] Setup a remote develoment environment (Set up the Jetson for wifi and running in headless mode, ssh into it and setup ROS networking)
@@ -49,11 +49,12 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
   - Shown [here](./src/BobertLimits)
 - [x] Use the MoveIt! [Setup Assistant](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) to create configuration files to be used by the simulation
-- [ ] Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
+- [x] Use MoveIt! to perform inverse kinematics on the arm when the wheeled platform is in a correct location
 - [x] Write the Bobert control package
   - Shown [here](./src/bobert_control)
 - [x] Write the simulation tests to test the control package
   - Included in the control package
+- [x] Use ```rosserial``` to connect the Jetson and Teensy via UART over USB [WIKI](http://wiki.ros.org/rosserial_arduino) [GITHUB](https://github.com/ros-drivers/rosserial)
 - [ ] **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
 - [ ] **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
 - [ ] Test Bobert inside of a replica course made by the IEEE Hardware Team
@@ -69,7 +70,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    - An [Intel RealSense T265 Tracking Camera](https://www.intelrealsense.com/tracking-camera-t265/)
    - An [Intel RealSense D435 Depth Camera](https://www.intelrealsense.com/depth-camera-d435/)
    - A [Nvidia Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) to perform image processing, running ROS, SLAM, path planning, inverse kinematics
-   - A [Teensy Microcontroller](https://www.pjrc.com/store/teensy41.html) to drive the arm and wheel servos based on the ROS messages devlivered to it from the Jetson.
+   - A [Teensy Microcontroller](https://www.pjrc.com/store/teensy41.html) to drive the arm and wheel servos based on the ROS messages devlivered to it from the Jetson via ```rosserial```.
    
 3. Hardware Component Relationship Diagram:
 <p align="center">
@@ -134,6 +135,8 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Installation and building of [jetson_inference](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/jetson_dev/jetson_inference) models for future transfer learning to identify our targets  
   - Creation the ROS scan/perception namespace (the nodes related to sensor input)
   - Connecting perception (RealSense Cameras) to ROS and verification of message passing
+  - Connecting the Jetson to the Teensy via ```rosserial```
+  - Integration of the [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/) package for SLAM without path planning 
   - **Next Major Task:** Developing the SLAM namespace (ros_mapping), the navigation namespace (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao.  
 
 
@@ -190,6 +193,20 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - Now test the remote IDE development connection by opening VSCode with the SSH package installed.
 - SSH into the Jetson from within VSCode.
 - Success means that the VSCode connect to the Jetson Filesystem and we should be able to navigate it, create new files, and run a terminal all inside of VSCode. 
+
+### Testing the ROSSERIAL connection between the Jetson and the Teensy
+- First, install rosserial onto the Jetson following [this](http://wiki.ros.org/rosserial_arduino/Tutorials) tutorial
+- Download the Arduino IDE Add-On *Teensyduino* from [here](https://www.pjrc.com/teensy/td_download.html)
+- Program the Teensy with the [HelloWorld](./ROS_Melodic_Implementation/teensyduino/HelloWorld/HelloWorld.ino) Arduino sketch 
+- Plug the Teensy into the Jetson via USB
+- On the Jeston, ```roscore```
+- In a second Jetson terminal, ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
+- In a third terminal, ```rostopic echo chatter``` to see the messages being sent. If messages "Hello World!" are received, the connection is functional.
+- If you run into problems, like I did, try this and repeat the steps above after:
+  - ```ImportError: No module named queue.``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
+    - follow [this](https://answers.ros.org/question/362043/importerror-no-module-named-queue/)
+  - ```SerialException: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
+    - follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
