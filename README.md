@@ -231,12 +231,14 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 
 
 ## ~~Alpha~~ Beta Build Specifications
+**Note: Beta Build Additions to this section will be bolded.**
+
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the ~~Alpha~~ Beta Build Spec accordingly.*
 
-**Beta Build Additions to this section will be bolded.**
+**The unexpected hiccup of the Beta Build was the illness of Xuanhao. He was put out of commission for a few days and this inhibited his ability to make progress. We have factored in some flexibility in our long term deadlines, so we will be fine in the long run.**
 
 ### Usability
-- **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace.
+- **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace. **We now have a much better understanding of the structure of ROS packages and how they will interact. For example, we now know thta ROS provides standard software stacks/boilerplates for certain subsections of the robotic process. These sections are**
 1. ROS Perception Interface
 <p align="center">
    <img src="./images/d435_and_t265_rosgraph.png" width="650">
