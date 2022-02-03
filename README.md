@@ -204,9 +204,9 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - In a third terminal, ```rostopic echo chatter``` to see the messages being sent. If messages "Hello World!" are received, the connection is functional.
 - If you run into problems, like I did, try this and repeat the steps above after:
   - ```ImportError: No module named queue.``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
-    - follow [this](https://answers.ros.org/question/362043/importerror-no-module-named-queue/)
+    - Follow [this](https://answers.ros.org/question/362043/importerror-no-module-named-queue/)
   - ```SerialException: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
-    - follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
+    - Follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
@@ -243,7 +243,8 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 Code here represents the current branch of development. ROS Melodic is natively supported by the Nvidia Jetson Hardware, making development significantly more intuitive than using a containerized approach. It includes two subdirectories:
    1. [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/): LUKE'S Responsibilities, the Jetson setup and ROS perception elements
    2. [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/): XUANHAO'S Responsibilities, the hardware interface, servo drivers, and arm control
-   3. [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws): LUKE'S Responsibilities, the test workspace used to verify the remote development and visualization connection
+   3. [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws/): LUKE'S Responsibilities, the test workspace used to verify the remote development and visualization connection
+   4. [teensyduino](./ROS_Melodic_Implementation/teensyduino/): LUKE'S & XUANHAO'S Responsibilities, the Arduino sketches to be programmed on the Teensy 
 2. [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
 Code here is a remnant from the attempt made to dockerize ROS2 Foxy on the Jetson. We bit off more than we could chew with this, and as of 1/17/21, everything in this dirctory is no longer active nor will be added to in the future.
 
@@ -265,12 +266,18 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 
 [![Connect the camera input to Rviz](https://img.youtube.com/vi/0Snpj9SjjzQ/0.jpg)](https://www.youtube.com/watch?v=0Snpj9SjjzQ)
 
+### Steps Taken [as of Beta Build 2/4/22]:
+- Removed the realsense-ros packages installed from debian package of ROS Distribution via apt-get. Installing realsense_camera like this works, but it uses the less stable RSUSB backend.
+- Built realsense-ros packages from source [here](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/realsense-ros/) in the repo, pulled from the [IntelRealSense Repo](https://github.com/IntelRealSense/realsense-ros/tree/fc1b329a78715668c01a9461386f93d662ded80a). Building the packages this way will cause the camera nodes to utilize the more stable V4L2 driver backend that comes with the [RealSense SDK 2.50](https://github.com/IntelRealSense/librealsense/releases/tag/v2.50.0)
+- Implemented and tested the rosserial package, located [here](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/rosserial/) in the repo, by following [these](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup) instructions
+- Implemented and tested the occupancy package, located [here](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/) in the repo, with the source coming from [here](https://github.com/IntelRealSense/realsense-ros/tree/occupancy-mapping/occupancy)
+
 ## [Native ROS Melodic Implementation: rviz_demo_ws](./ROS_Melodic_Implementation/jetson_dev/)
 ### Goal:
 Setup the Jetson for wireless headless operation, connect to it via ssh for remote development, set up ROS networking for remote Rviz debugging.
 ### Steps Taken [as of Alpha Build 1/21/22]:
 -N/A
-### Steps Taken [as of Beta Build xx/xx/22]:
+### Steps Taken [as of Beta Build 2/4/22]:
 - Successfully installed wifi drivers on the Jetson for the [usb wifi dongle](https://forums.developer.nvidia.com/t/edimax-ew-78111un-v2-wifi-setup/165047/13) purchased.
 - Connect to the Jetson via SSH on observer device, on Ubuntu 18.04 VM on observer device, and on VSCode on observer device for remote development.
 - Downloaded ROS Melodic into the Ubuntu VM
@@ -280,6 +287,10 @@ Setup the Jetson for wireless headless operation, connect to it via ssh for remo
   - On the Observer, ```export ROS_IP=OBSERVER_IP_ADDR``` and ```export ROS_MASTER_URI=http://MASTER_IP_ADDR:11311```.
 - Developed the rviz test package *using_markers* to verify that the jetson can pass ROS messages to the Observer device for visualizaition.
   - Follow the steps [here under Tesing](#testing-rviz-and-remote-development-connections)
+
+## [Native ROS Melodic Implementation: teensyduino](./ROS_Melodic_Implementation/teensyduino/)
+### Steps Taken [as of Beta Build 2/4/22]:
+- Following [this](http://wiki.ros.org/rosserial_arduino/Tutorials/Hello%20World) ROS tutorial, the rosserial connenection between the Jetson and Teensy was verified.
 
 ## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
 ### Goal:
