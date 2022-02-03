@@ -36,12 +36,13 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Install the RealSense Wrappers and Nodes into the ROS underlay (application-generic library code visible to ROS):
   - ```sudo apt-get install ros-$ROS_DISTRO-realsense2-camera```
 - [x] Create a ROS workspace in which a master node, camera nodes and topics, are created
-  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/)
+  - Inside this repo, this workspace is the [./Ros_Melodic_Implementation/jetson_dev/cattkin_ws/](./Ros_Melodic_Implementation/jetson_dev/catkin_ws/)
   - [Create unit tests](./PUT LINK HERE) to verify the proper spawning of all nodes and datafeeds
 - [x] Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
 - [x] Setup a remote develoment environment (Set up the Jetson for wifi and running in headless mode, ssh into it and setup ROS networking)
 - [x] Test remote Rviz visualization 
 - [ ] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
+   - [x] Write a ROS package to generate a @D occupancy map based off 3D Depth images. This package is called [occupancy](./Ros_Melodic_Implementation/jetson_dev/catkin_ws/src/)
 - [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
 - [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
