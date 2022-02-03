@@ -10,7 +10,7 @@ Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://gi
    - [Software](#software-overview)
 3. [Individual Responsibilities](#responsibilities)
 4. [Testing](#testing)
-5. [~~Alpha~~ Beta Build Specifications](#~~alpha~~-beta-build-specifications)
+5. [~~Alpha~~ Beta Build Specifications](#alpha-beta-build-specifications)
 6. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
