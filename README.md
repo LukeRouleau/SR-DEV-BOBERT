@@ -143,7 +143,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Connecting perception (RealSense Cameras) to ROS and verification of message passing
   - Connecting the Jetson to the Teensy via ```rosserial```
   - Integration of the [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/) package for SLAM without path planning 
-  - **Next Major Task:** Developing the SLAM namespace (ros_mapping), the navigation namespace (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao.  
+  - **Next Major Task:** the navigation package from the standard ROS software stack (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao for execution of velocity messages. The navigation package containes the tasks of target identification, path planning, and obstacle avoidance.
 
 
 ## Testing
