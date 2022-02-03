@@ -42,7 +42,8 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Setup a remote develoment environment (Set up the Jetson for wifi and running in headless mode, ssh into it and setup ROS networking)
 - [x] Test remote Rviz visualization 
 - [ ] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
-   - [x] Write a ROS package to generate a @D occupancy map based off 3D Depth images. This package is called [occupancy](./Ros_Melodic_Implementation/jetson_dev/catkin_ws/src/)
+   - [x] Write a ROS package to generate a 2D occupancy map based off 3D Depth images. This package is called [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/). This represents the S_AM of SLAM.
+   - [ ] Compose a full SLAM package piggybacking off of the occupancy package
 - [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
 - [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
