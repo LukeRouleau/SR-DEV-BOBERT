@@ -66,3 +66,16 @@ Writing the simulation tests.
 
 ### Issues Present [as of Alpha Build 1/21/22]:
 - The exact messages cannot be seen through the terminal due to some of the controllers are unable to be recognized.
+
+### Current and Future Testing Plan:
+- Currently, the test is embedded inside the src files for the bobert_control package.
+- To launch the project with tests, do the following:
+  - source the workspace with ```source ./devel/setup.bash```
+  - launch the main hardware interface ```roslaunch ./src/bobert_control/launch/bobert_HW_main.launch```
+- The main hardware interface will load the arm into the RVIZ and then subscribe to the ```/teensy/bobertTelemetry``` topic and publish the  current arm angles to ```/teensy/armCmd```
+- This interface will also load the testing node within ```./src/bobert_control/src/bobert_sim_echo.cpp```
+- This testing node will simulate a node that works like a teensy controller.
+- This testing node will subscribe to the ```/teensy/armCmd``` topic and echo the angle positions to ```/teensy/bobertTelemetry```
+- And thus we can use ```rostopic info``` to see the message about the joint controller between the hardware interface node and the teensy node.
+- As such, inside RVIZ, we can add whatever planning group we want to modify on the arm, and then plan the path to communicate the information through the terminal in the same format as the ```./src/bobert_control/msg/```
+- In the future, we can add more complex msg structures and inputs from the simulated teensy node to be sent to the main hardware interface.
