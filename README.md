@@ -305,7 +305,7 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 ### Goal:
 Setup the Jetson for wireless headless operation, connect to it via ssh for remote development, set up ROS networking for remote Rviz debugging.
 ### Steps Taken [as of Alpha Build 1/21/22]:
--N/A
+- N/A
 ### Steps Taken [as of Beta Build 2/4/22]:
 - Successfully installed wifi drivers on the Jetson for the [usb wifi dongle](https://forums.developer.nvidia.com/t/edimax-ew-78111un-v2-wifi-setup/165047/13) purchased.
 - Connect to the Jetson via SSH on observer device, on Ubuntu 18.04 VM on observer device, and on VSCode on observer device for remote development.
