@@ -42,9 +42,10 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Use the [ROS control boilerplate](http://wiki.ros.org/ros_control_boilerplate) as the base for the overall control nodes and topics
 - [x] Setup a remote develoment environment (Set up the Jetson for wifi and running in headless mode, ssh into it and setup ROS networking)
 - [x] Test remote Rviz visualization 
-- [ ] Employ SLAM, Mapping, and Navigation ROS packages for the competition environment. This is the most vague component until we have a robot to deploy our software on. Should be done within the next two weeks from the IEEE team.
-   - [x] Write a ROS package to generate a 2D occupancy map based off 3D Depth images. This package is called [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/). This represents the S_AM of SLAM.
-   - [ ] Compose a full SLAM package piggybacking off of the occupancy package
+- [x] Employ SLAM ROS packages for the competition environment
+   - [x] Use the RealSense T265 Tracking Camera to perform SLAM
+   - [x] Write a ROS package to generate a 2D occupancy map based off 3D Depth images and T265 SLAM. This package is called [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/).
+- [ ] Compose a ROS package off of the standard ROS navigation software stack that takes the 2D occupancy map and a target-trained network and performs path planning
 - [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
 - [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
@@ -56,10 +57,12 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Write the simulation tests to test the control package
   - Included in the control package
 - [x] Use ```rosserial``` to connect the Jetson and Teensy via UART over USB [WIKI](http://wiki.ros.org/rosserial_arduino) [GITHUB](https://github.com/ros-drivers/rosserial)
-- [ ] **Wheel-Servo Drivers:** Compose a custom hardware interface that reads from a ROS topic to convert the planned path to wheeled motion
-- [ ] **Arm-Servo Driver:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+- [x] **Wheel-Servo Drivers:** Compose a hardware interface that reads the ROS node on the Teensy and executes the velocity commands. Also, feed the odometery information back to the T265 for more robust SLAM.
+- [ ] **Arm-Servo Driver/Interface:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+- [ ] Using the custom made URDF file, get the arm simulation working so that we can test the custom arm hardware interface
+   - [x] Reached out to Max Panoff, our TA in Autonomous Robotics, to receive aid the in the debugging of the arm simulation
 - [ ] Test Bobert inside of a replica course made by the IEEE Hardware Team
-- [ ] Integrate the whole hardware interface to the Teensy
+
 
 ## Architecture
 ### Hardware Overview
@@ -94,6 +97,7 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    - Middleware: 
      - [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu): Not really and OS, but a "glue" technology that manages and handles communication between robotic elements
      - [rosserial](http://wiki.ros.org/rosserial_arduino): rosserial is a protocol for wrapping standard ROS serialized messages and multiplexing multiple topics and services over a character device such as a serial port or network socket
+     - [realsense-ros](https://github.com/IntelRealSense/realsense-ros/releases): The ROS wrappers for the RealSense cameras
    - Visualization and Simulation:
      - [Rviz](http://wiki.ros.org/rviz): a visualization tool to view complex data (spacial data), check component models. Used to answer the question, "What does the robot see?"
      - [Gazebo](http://gazebosim.org/): a simulation tool for "what should the robot see?" and "what should the robot do after seeing?". This tool is mainly used when physical testing/experimentation is not feasible, but we mostly plan to experiment in person on a mock track.
@@ -131,6 +135,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Creation of the URDF file necessary to model in MoveIt!: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/BobertLimits/urdf), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config) 
   - Make the workspace RoboWare compatible
   - Write the ROS control namespace (ros_control) and simulation test to verify the control package: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_control), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_control)
+  - **Next Major Task:** Debugging the arm simulaiton for testing of the hardware interface. Xuanhao got sick this week and it severly inhibited his progress. He will be back to full strength the following week.
 - **LUKE is reponsible for** all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/), [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws/), and [teensyduino](./ROS_Melodic_Implementation/teensyduino/) folders inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/)
   - Preparation of the Nvidia Jetson Environment (Jetpack flashing, ROS install)
   - Integration of the RealSense Cameras (driver, SDK, and ROS package install)
@@ -335,6 +340,12 @@ Writing the Bobert control package.
 - The Bobert control package currently cannot recognize any of the joint controllers.
 - It also cannot load any messages being sent and received through the nodes.
 
+### Steps Taken [as of Beta Build 2/4/22]:
+- Successfully have the arm joints recognized in simulation for inverse kinematics
+
+### Issues Present [as of Beta Build 2/4/22]:
+- Xuanhao's illness has hindered his progress in this area. There still exists a significant bug that is stopping the simulation from reading the actual custom hardware interface code. The simulation can manipulate the arm to a final location, but it is not doing this by taking commands from the hardware interface. 
+
 ### Goal:
 Writing the simulation tests.
 ### Steps Taken [as of Alpha Build 1/21/22]:
@@ -343,6 +354,11 @@ Writing the simulation tests.
 ### Issues Present [as of Alpha Build 1/21/22]:
 - The exact messages cannot be seen through the terminal due to some of the controllers are unable to be recognized.
 
+### Steps Taken [as of Beta Build 2/4/22]:
+- N/A
+
+### Issues Present [as of Beta Build 2/4/22]:
+- Xuanhao's illness has hindered his progress in this area.
 
 ## [DEPRECIATED!: ROS2-Docker Implementation](./ROS2_Docker_Implementation)
 Based entirely off of [Nvidia's example](https://github.com/dusty-nv/jetbot_ros)
