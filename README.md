@@ -10,14 +10,13 @@ Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://gi
    - [Software](#software-overview)
 3. [Individual Responsibilities](#responsibilities)
 4. [Testing](#testing)
-5. [Alpha Build Specifications](#alpha-build-specifications)
-6. [Beta Build Specifications](#beta-build-specifications)
-7. [Repository Contents](#repository-contents)
+5. [~~Alpha~~ Beta Build Specifications](#~~alpha~~-beta-build-specifications)
+6. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
    - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-8. [Progress Log](#progress-log)
+7. [Progress Log](#progress-log)
    
 ## Design Goals
 ### Top-Level Goal:
@@ -231,7 +230,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 </p>
 
 
-## Alpha Build Specifications
+## ~~Alpha~~ Beta Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
 
 ### Usability
@@ -261,16 +260,6 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 <p align="center">
    <img src="./images/occupancy.gif" width="600">
 </p>
-
-## Beta Build Specifications
-### Usability
-TBF
-
-### Build Quality
-TBF
-
-### Vertical Features
-TBF
 
 # Repository Contents
 1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
