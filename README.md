@@ -11,12 +11,13 @@ Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://gi
 3. [Individual Responsibilities](#responsibilities)
 4. [Testing](#testing)
 5. [Alpha Build Specifications](#alpha-build-specifications)
-6. [Repository Contents](#repository-contents)
+6. [Beta Build Specifications](#beta-build-specifications)
+7. [Repository Contents](#repository-contents)
    - [ROS Melodic Implemenation](./ROS_Melodic_Implementation)
      - **Active:** This is the current path of development. 
    - [ROS2+Docker Approach](./ROS2_Docker_Implementation)
      - **Depreciated:** This was a design attempt from which we've since pivoted away. 
-7. [Progress Log](#progress-log)
+8. [Progress Log](#progress-log)
    
 ## Design Goals
 ### Top-Level Goal:
@@ -242,10 +243,12 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 - **Navigation:** Since there is no user interface, navigation of that interface does not directly apply. In the sense that we, the developers, are the users (until an autonomous product is delivered), the ROS command line interface is how we can navigate our solution. Specifically, we can call ```rqt``` to launch a GUI tool for visualiation plugins. For example, the ROS interface graphs shown above are accesible via ```rqt_graph```
 - **Perception:** Since we do not have a deployable form, the final end-user perception is unimplemented. However, we know the design will be a push button to start the autonomous functionality. Pushing the button will start a ros launch file for our final solution package: Button press triggers ```roslaunch bobert_package bobert_competition.launch``` to execute. 
 - **Responsiveness:** ROS manages hardware and software loads on the CPU. After having a deployable robot to test with, we can tune message passing frequency to reduce the load on the CPU if necessary; however, the Nvidia Jetson should be more than powerful enough to handle what we throw at it. Since we are mosly writing code to glue well-established open-source libraries together, we can assume that those code bases are optimized to a level where we could offer no further improvement ourselves.  
+
 ### Build Quality
 - **Robustness:** Now that we have fully transitioned to using ROS rather than ROS2, we have been able to quickly and easily install all the required libraries and their dependencies since ROS is natively supported. This means that the bulk of all the code that will power Bobert is compiled on the Jetson, and we are making our "glue" code, in the form of ROS packages, to tie it together. However, we do not have a fully deployable robot, so we cannot say that the robot functions in a regular use context. We do not feel this criteria accurately maps to our project.  
 - **Consistency:** The systems that we have the ability to start are reliable. For example, to spawn our ROS perception nodes, we just run ```roslaunch realsense2_camera rs_d400_and_t265.launch```. However, we again do not have a deployable robot, and the robot has not been trained on images of the targets, so there is no expected behavior yet.
 - **Aesthetic Rigor:** The robot's platform components have come in from a fab-site today (1/21), but it is not yet assembled. It will be soon, assembled by the IEEE Hardware Team. 
+
 ### Vertical Features
 - **External Interface:** To the best of our ability, we have implemented some *basic* functionality on the hardware of every component. The Nvidia Jetson has ROS and a ROS environemnt, has the RealSense drivers and can read from the RealSense cameras, and provides their data on ROS topics. The Teensy has basic servo driver code implemented, and has a ROS node library to interpret the geometry_twist messages that will eventually be sent out from the Jetson after SLAM and planning is performed. The robot arm has yet to be fully assembled by the Hardware team, but the individual servos have been tested, and we have create a URDF file from scratch so we can simulate the arm in the meantime. The URDF file allows us to view the arm in Rviz so that we can continue to develop the servo hardware interface.   
 - **Persistent State:** Since we are no longer using Docker containers, we no longer have to worry about manually creating storage volumes to maintain a persistent state inside of the containers. Now, all data is stored as a normal files on the RAM and SD of the Jetson. For example, the Deep Neural Networks that we plan to transfer learn from are stored in a directory on the Jetson.
@@ -254,6 +257,15 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
    <img src="./images/occupancy.gif" width="600">
 </p>
 
+## Beta Build Specifications
+### Usability
+TBF
+
+### Build Quality
+TBF
+
+### Vertical Features
+TBF
 
 # Repository Contents
 1. [Native ROS Melodic Implementation](./ROS_Melodic_Implementation)  
