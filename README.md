@@ -278,7 +278,7 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 </p>
 
 ## Alpha Test Report
-This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the alpha test plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf).
+This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the Alpha Test Plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf) for further test elaboration. View our Beta Test Plan document [here](./INSERT HERE) for the testing process going forward.
 
 
 
