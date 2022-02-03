@@ -202,12 +202,28 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - Plug the Teensy into the Jetson via USB
 - On the Jeston, ```roscore```
 - In a second Jetson terminal, ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
-- In a third terminal, ```rostopic echo chatter``` to see the messages being sent. If messages "Hello World!" are received, the connection is functional.
+- In a third terminal, ```rostopic echo chatter``` to see the messages being sent. 
 - If you run into problems, like I did, try this and repeat the steps above after:
   - ```ImportError: No module named queue.``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
     - Follow [this](https://answers.ros.org/question/362043/importerror-no-module-named-queue/)
   - ```SerialException: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
     - Follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
+- If successful, messages "Hello World!" are received, and you know the connection is functional:
+
+<p align="center">
+   <img src="./images/occupancy.gif" width="600">
+</p>
+
+### Testing D435 & T265 Camera ROS Connection & Integration via SLAM using [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/)
+- Start ```roscore``` on the Jetson
+- In another terminal, run ```roslaunch occupancy occupancy_live_rviz.launch```
+- Open Rviz and load [this](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/rviz/pointcloud_w_occupancy.rviz) configuration file.
+- If successful, moving the two mounted cameras around the room will create a 2D occupancy map based on the D435 3D depth images and T265 localization:
+
+<p align="center">
+   <img src="./images/rosserial_running_helloworld.png" width="600">
+</p>
+
 
 ## Alpha Build Specifications
 The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the Alpha Build Spec accordingly.*
