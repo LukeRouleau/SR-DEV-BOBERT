@@ -280,6 +280,14 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 ## Alpha Test Report
 This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the Alpha Test Plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf) for further test elaboration. View our Beta Test Plan document [here](./INSERT HERE) for the testing process going forward.
 
+1. Package Test for *bobert_control*
+   - **FAILED PARTIALLY**
+   - Though most of the code is written for the *bobert_control* package, and all necessary libraries are installed, we are still working on debugging the MoveIt simulation of the arm and its custom hardware interface, meaning that we fail the last bullet point of the test:
+> Every time we plan and execute a specific path on a planning group in RVIZ, the terminal message for the six values will change accordingly. And we can thus see if these messages match our path roughly.
+   - The simulation is no recognizing the joint controllers we have created, we are missing somwhere in the [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/) a declaration of the joint controllers we've made. We are working on resolving this bug ASAP.  
+
+2. Driver Test for *RealSense Cameras*
+   - **FULL PASS**
 
 
 # Progress Log
