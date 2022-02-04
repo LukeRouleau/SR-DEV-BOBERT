@@ -205,7 +205,9 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Success looks like [this](https://youtu.be/ktoTAFkJI9Q).
   - Also, the networked ROS Graph should look something like this:
 
-![](./images/remote_rviz_connected.PNG)
+<p align="center">
+   <img src="./images/remote_rviz_connected.PNG" width="600">
+</p>
 
 - Now test the remote IDE development connection by opening VSCode with the SSH package installed.
 - SSH into the Jetson from within VSCode.
