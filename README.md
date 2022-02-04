@@ -227,7 +227,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - ```SerialException: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
     - Follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
 - If successful, messages "Hello World!" are received, and you know the connection is functional:
-- 
+ 
 <p align="center">
    <img src="./images/rosserial_running_helloworld.png" width="600">
 </p>
@@ -302,7 +302,7 @@ This section represents the evaluation of our Beta Build against the test plan w
 
 5. Teleoperation Test for the Bobert Platform
    - **FAILED PARTIALLY**
-   - We still do not yet have a platform provided to us from the IEEE Hardware Team to integrate our computers and software onto, so the test of teleoperating the robot fails because we do not have a robot to teleoperate. That being said, we have the concept of the remote development and platform testing ready. We can remotely program, debug and visualize the Jetson as it runs in headless mode, disconnected from any screen, mouse, and keyboard. The [Headless Mode Test](#testing-jetson-in-headless-mode), which is a subset of the teleop test, passes fully.
+   - We still do not yet have a platform provided to us from the IEEE Hardware Team to integrate our computers and software onto, so the test of teleoperating the robot fails because we do not have a robot to teleoperate. That being said, we have the concept of the remote development and platform testing ready. We can remotely program, debug and visualize the Jetson as it runs in headless mode, disconnected from any screen, mouse, and keyboard. The [Headless Mode Test](#testing-jetson-in-headless-mode) and the [Remote Development and Rviz Connection Test](#testing-rviz-and-remote-development-connections), which are subsets of the teleop test, passes fully.
 
 6. Simulation Test of the Robotic Arm Hardware Interface
    - **FULL FAIL**
