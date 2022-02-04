@@ -211,7 +211,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 
 - Now test the remote IDE development connection by opening VSCode with the SSH package installed.
 - SSH into the Jetson from within VSCode.
-- Success means that the VSCode connect to the Jetson Filesystem and we should be able to navigate it, create new files, and run a terminal all inside of VSCode. 
+- Success means that the VSCode connect to the Jetson file system and we should be able to navigate it, create new files, and run a terminal all inside of VSCode. 
 
 ### Testing the ROSSERIAL connection between the Jetson and the Teensy
 - First, install rosserial onto the Jetson following [this](http://wiki.ros.org/rosserial_arduino/Tutorials) tutorial
