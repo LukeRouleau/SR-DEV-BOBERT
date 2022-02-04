@@ -23,12 +23,16 @@ void bobertHWInterface::telemetryCallback(const bobert_control::bobertTelemetry:
     //joint_velocity_[i] = msg->vel[i]*DEG_TO_RAD;
   }  
 
+  //bufferHealth = msg->bufferHealth;
+
 }
 
 void bobertHWInterface::init()
 {
   // Call parent class version of this function
   GenericHWInterface::init();
+
+  //joint_position_prev_.resize(joint_position_.size());
 
   ROS_INFO("bobertHWInterface Ready.");
 }
@@ -53,6 +57,35 @@ void bobertHWInterface::write(ros::Duration& elapsed_time)
   cmd_pub.publish(arm_cmd);
 
 }
+
+/*
+void bobertHWInterface::write(ros::Duration& elapsed_time)
+{
+  
+  static bobert_control::armCmd cmd_;
+
+  bool changed = false;
+  for(int i = 0; i < num_joints_; i++){
+    if(joint_position_prev_[i] != joint_position_command_[i]){
+      changed = true;
+      break;
+    }
+  }
+
+  if(changed){
+    for(int i = 0; i < num_joints_; i++){
+      cmd_.angle[i] = joint_position_command_[i] * RAD_TO_DEG;
+      //cmd_.vel[i]= (fabs(joint_position_command_[i]-joint_position_prev_[i])*RAD_TO_DEG)/elapsed_time.toSec(); 
+      // (must be positive for aubo) joint_velocity_command_[i]*RAD_TO_DEG; joint_velocity_command_[i] calculate my own velocities
+    }
+    if(bufferHealth<DESIRED_BUFFERED_POINTS>){
+      cmd_.msg_ctr = cmd_.msg_ctr + 1;
+      cmd_pub.publish(cmd_);
+    }
+  }
+
+}
+*/
 
 void bobertHWInterface::enforceLimits(ros::Duration& period)
 {
