@@ -312,7 +312,7 @@ This section represents the evaluation of our Beta Build against the test plan w
    - **FULL FAIL**
    - This test fully fails beacause, through this development cycle, we have not gotten to development of the classification/target-recognition package. This is part of the ultimate task of path planning, and it is the immediate next task going into the next build cycle. 
 
-9. [SLAM TEST](#testing-d435--t265-camera-ros-connection--integration-via-slam-using-occupancy)
+9. [SLAM Test](#testing-d435--t265-camera-ros-connection--integration-via-slam-using-occupancy)
    - **FULL PASS**
    - We can fully execute SLAM with the help of the T265 Tracking Camera. Then, coupling the T265 pose data with the D435 depth cloud, we can create an occupancy map of the robot's suroundings, which is essential to path planning.
 
