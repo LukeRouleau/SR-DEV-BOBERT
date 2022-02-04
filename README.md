@@ -225,9 +225,9 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - ```SerialException: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'``` on ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
     - Follow [this](https://answers.ros.org/question/52093/rosserial-helloworld/)  
 - If successful, messages "Hello World!" are received, and you know the connection is functional:
-
+- 
 <p align="center">
-   <img src="./images/occupancy.gif" width="600">
+   <img src="./images/rosserial_running_helloworld.png" width="600">
 </p>
 
 ### Testing D435 & T265 Camera ROS Connection & Integration via SLAM using [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/)
@@ -237,7 +237,7 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
 - If successful, moving the two mounted cameras around the room will create a 2D occupancy map based on the D435 3D depth images and T265 localization:
 
 <p align="center">
-   <img src="./images/rosserial_running_helloworld.png" width="600">
+   <img src="./images/occupancy.gif" width="600">
 </p>
 
 
@@ -280,14 +280,39 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
 ## Alpha Test Report
 This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the Alpha Test Plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf) for further test elaboration. View our Beta Test Plan document [here](./INSERT HERE) for the testing process going forward.
 
-1. Package Test for *bobert_control*
+1. [Package Test for *bobert_control*](#testing-the-bobert_control-package)
    - **FAILED PARTIALLY**
    - Though most of the code is written for the *bobert_control* package, and all necessary libraries are installed, we are still working on debugging the MoveIt simulation of the arm and its custom hardware interface, meaning that we fail the last bullet point of the test:
      > "Every time we plan and execute a specific path on a planning group in RVIZ, the terminal message for the six values will change accordingly. And we can thus see if these messages match our path roughly."
    - The simulation is no recognizing the joint controllers we have created, we are missing somwhere in the [roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/) a declaration of the joint controllers we've made. We are working on resolving this bug ASAP.  
 
-2. Driver Test for *RealSense Cameras*
+2. [Driver Test for *RealSense Cameras*](#testing-the-camera-drivers)
    - **FULL PASS**
+   - Camera Streams are fully visible in the realsense-viewer, meaning that the RealSense Camera SDK 2.50 and the camera drivers are correctly installed. We can also verify that the correct USB connections (USB 3.0, not USB 2.0) are being used in the realsense-viewer.
+
+3. [Package Test for *jetson_dev*](#testing-the-jetson_dev-environment)
+   - **FULL PASS**
+   - The perception node network is launchable and we can execute SLAM and occupancy mapping on the headless Jetson Nano, both of which are visible in Rviz remotely.
+
+4. [Hardware Communication Test for the Jetson-Teensy *rosserial connection* over USB](#testing-the-rosserial-connection-between-the-jetson-and-the-teensy)
+   - **FULL PASS**
+   - The rosserial connection over USB between the Teensy and the Jetson is functional. We can now directly program the Teensy as a ROS Node, making it a publisher or subcriber, and seamlessly integrate it into the node network running on the Jetson. We are able to publish "Hello World!" messages on the Teensy, listen to it on the Jetson, and echo out those received messages on the remote terminal.
+
+5. Teleoperation Test for the Bobert Platform
+   - **FAILED PARTIALLY**
+   - We still do not yet have a platform provided to us from the IEEE Hardware Team to integrate our computers and software onto, so the test of teleoperating the robot fails because we do not have a robot to teleoperate. That being said, we have the concept of the remote development and platform testing ready. We can remotely program, debug and visualize the Jetson as it runs in headless mode, disconnected from any screen, mouse, and keyboard. The [Headless Mode Test](#testing-jetson-in-headless-mode), which is a subset of the teleop test, passes fully.
+
+6. Simulation Test of the Robotic Arm Hardware Interface
+   - **FULL FAIL**
+   - This test failes fullly. To pass this test, we need to fully pass the package test for *bobert_control*.
+
+8. Classification Test of the Target-Recognizing Neural Network
+   - **FULL FAIL**
+   - This test fully fails beacause, through this development cycle, we have not gotten to development of the classification/target-recognition package. This is part of the ultimate task of path planning, and it is the immediate next task going into the next build cycle. 
+
+9. [SLAM TEST](#testing-d435--t265-camera-ros-connection--integration-via-slam-using-occupancy)
+   - **FULL PASS**
+   - We can fully execute SLAM with the help of the T265 Tracking Camera. Then, coupling the T265 pose data with the D435 depth cloud, we can create an occupancy map of the robot's suroundings, which is essential to path planning.
 
 
 # Progress Log
