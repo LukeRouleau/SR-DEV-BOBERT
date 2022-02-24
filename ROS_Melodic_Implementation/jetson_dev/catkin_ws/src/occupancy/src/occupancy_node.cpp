@@ -135,6 +135,18 @@ int main(int argc, char **argv)
     occGrid->data = (int8_t*) malloc(allocated_width * allocated_height);
     unsigned int frame_id = 0;
 
+    // Load a map?
+    bool loadMap;
+    if ( !n.getParam("MapLoadOn", loadMap))
+        ROS_ERROR("Failed to get param 'MapSaveOn'");
+
+    if(loadMap){
+        const char* mapFileName;
+        if ( !n.getParam("LoadMapFileName", mapFileName))
+            ROS_ERROR("Failed to get param 'HeightOfInterestMax'");
+        mapManager->ImportMap(mapFileName);
+    }
+
     while (ros::ok())
     {
         if (framesSinceLastPublished > 5)
@@ -195,6 +207,19 @@ int main(int argc, char **argv)
         
         ros::spinOnce();
     }
+
+    // Export the map??
+    bool saveMap;
+    if ( !n.getParam("MapSaveOn", saveMap))
+        ROS_ERROR("Failed to get param 'MapSaveOn'");
+
+    if(saveMap){
+        const char* mapFileName;
+        if ( !n.getParam("SaveMapFileName", mapFileName))
+            ROS_ERROR("Failed to get param 'HeightOfInterestMax'");
+        mapManager->ExportMap(mapFileName);
+    }
+
 
     return 0;
 }
