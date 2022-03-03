@@ -1,0 +1,3 @@
+<launch>
+	<node name="teensy_integration" pkg="teensy_integration" type="teensy_node" respawn="true" />
+</launch>
