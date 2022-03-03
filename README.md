@@ -55,7 +55,6 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 - [x] Employ SLAM ROS packages for the competition environment
    - [x] Use the RealSense T265 Tracking Camera to perform SLAM
    - [x] Write a ROS package to generate a 2D occupancy map based off 3D Depth images and T265 SLAM. This package is called [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/).
-- [ ] Compose a ROS package off of the standard ROS navigation software stack that takes the 2D occupancy map and a target-trained network and performs path planning
 - [x] Install and integrate the [MoveIt!](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html) package on the OS
 - [x] Set up a [RoboWare](https://github.com/TonyRobotics/RoboWare) envrionment for the workspace
 - [x] Generate a URDF file for our 6 DOF robotic arm from a CAD model
@@ -68,7 +67,12 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
   - Included in the control package
 - [x] Use ```rosserial``` to connect the Jetson and Teensy via UART over USB [WIKI](http://wiki.ros.org/rosserial_arduino) [GITHUB](https://github.com/ros-drivers/rosserial)
 - [x] **Wheel-Servo Drivers:** Compose a hardware interface that reads the ROS node on the Teensy and executes the velocity commands. Also, feed the odometery information back to the T265 for more robust SLAM.
+- [x] Compose a ros_base package to read a geometry_msgs/Twist message off of a ROS node via rosserial to an move the wheels. 
+- [x] Save maps from the SLAM and occupancy mapping phase for reuse and point-of-interest labelling later
+- [x] Compose a ROS package for target recognition (of beads and cups) from the pose and camera feed information.
+- [ ] Compose a ROS package off of the standard ROS navigation software stack that takes the 2D occupancy map and a target-trained network and performs path planning
 - [ ] **Arm-Servo Driver/Interface:** Compose a custom hardware interface that reads from a ROS topic to control the 6DOF arm once the robot platform is near a "tree"
+   - [x] Compose a basic version of the arm interface to read from a ROS node over rosserial to move the arm.
 - [ ] Using the custom made URDF file, get the arm simulation working so that we can test the custom arm hardware interface
    - [x] Reached out to Max Panoff, our TA in Autonomous Robotics, to receive aid the in the debugging of the arm simulation
 - [ ] Test Bobert inside of a replica course made by the IEEE Hardware Team
@@ -85,6 +89,10 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
    - An [Intel RealSense D435 Depth Camera](https://www.intelrealsense.com/depth-camera-d435/)
    - A [Nvidia Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) to perform image processing, running ROS, SLAM, path planning, inverse kinematics
    - A [Teensy Microcontroller](https://www.pjrc.com/store/teensy41.html) to drive the arm and wheel servos based on the ROS messages devlivered to it from the Jetson via ```rosserial```.
+   - Two [TB9051FTG Single Brushed DC Motor Driver Carriers](https://www.pololu.com/product/2997) to read pin output from the teensy to control the wheels of the robot.
+   - Two [70:1 Metal Gearmotor 37Dx70L mm 12V with 64 CPR Encoder (Spur Pinion)](https://www.pololu.com/product/2825) as the wheels of the robot.
+   - A [Micro Maestro 6-Channel USB Servo Controller (Assembled)](https://www.pololu.com/product/1350) to read pin output form the teensy to control the servos of the arm.
+   - 6 [Power HD High-Torque Servo 1501MG](https://www.pololu.com/product/1057) to move the arm.
    
 3. Hardware Component Relationship Diagram:
 <p align="center">
