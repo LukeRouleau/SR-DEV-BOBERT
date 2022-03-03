@@ -149,11 +149,13 @@ Given the hardware provided, (a wheeled robotic platform, a Nvidia Jetson, Intel
 #### NOTE: 
 This repo, SR-DEV-BOBERT, serves as a central location of our software for the robot; HOWEVER, it has only been committed to by LUKE. Since, at this stage of development, the tasks XUANHAO and LUKE are working on are disjointed, we have **two separate repositories**, so individual contributions would not get muddled together. All of Xuanhao's work is present in this repo, but LUKE cloned his repo to his machine, copied it into this repo, and merged it. Thus, **the "paper trail" of this repo looks like only LUKE has contributed, and this is false. XUANHAO'S "paper trail" is indicated by the commit history to his reposity: [ACTUAL](https://github.com/x15000177/bobert_ws)** 
 - **XUANHAO is responsible for** all the code located inside this repo, "[LOCAL](./ROS_Melodic_Implementation/roboware_ros_ws/)", or XUANHAO'S actual individual repo, "[ACTUAL](https://github.com/x15000177/bobert_ws)".
-  - MoveIt! installation and simulation config file creation: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_moveit_config), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config)
+  - ~~MoveIt! installation and simulation config file creation~~: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_moveit_config), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config)
+    - This has since been abandoned. Using MoveIt is outside of the scope of this project for us at this point. Xuanhao is working on writing custom arm motion routines. 
   - Creation of the URDF file necessary to model in MoveIt!: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/BobertLimits/urdf), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_moveit_config) 
   - Make the workspace RoboWare compatible
   - Write the ROS control namespace (ros_control) and simulation test to verify the control package: [LOCAL](https://github.com/LukeRouleau/SR-DEV-BOBERT/tree/main/ROS_Melodic_Implementation/roboware_ros_ws/src/bobert_control), [ACTUAL](https://github.com/x15000177/bobert_ws/blob/main/src/bobert_control)
-  - **Next Major Task:** Debugging the arm simulaiton for testing of the hardware interface. Xuanhao got sick this week and it severly inhibited his progress. He will be back to full strength the following week.
+  - Compose the arm motion routines: [LOCAL](./ROS_Melodic_Implementation/teensyduino/arm_control/) , [ACTUAL]()
+  - **Next Major Task:** To develop an smooth arm routine to grasp the beads from the mounting points and place them in cups. 
 - **LUKE is reponsible for** all of the remaining aspects of this repository, like the (now depreciated) [ROS2 Docker Implementation](./ROS2_Docker_Implementation/), and the [jetson_dev](./ROS_Melodic_Implementation/jetson_dev/), [rviz_demo_ws](./ROS_Melodic_Implementation/rviz_demo_ws/), and [teensyduino](./ROS_Melodic_Implementation/teensyduino/) folders inside of the (active) [ROS Melodic Implementation](./ROS_Melodic_Implementation/)
   - Preparation of the Nvidia Jetson Environment (Jetpack flashing, ROS install)
   - Integration of the RealSense Cameras (driver, SDK, and ROS package install)
@@ -162,8 +164,9 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - Connecting perception (RealSense Cameras) to ROS and verification of message passing
   - Connecting the Jetson to the Teensy via ```rosserial```
   - Integration of the [occupancy](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/) package for SLAM without path planning 
-  - **Next Major Task:** the navigation package from the standard ROS software stack (ros_navigation), and connecting this to the base boilerplate (ros_base) in development by Xuanhao for execution of velocity messages. The navigation package containes the tasks of target identification, path planning, and obstacle avoidance.
-
+  - Perform map saving and loading of occupancy maps via a ROS [map_server](http://wiki.ros.org/map_server). 
+  - Compose the ros_base package so that the teensy can interpret geometry_msgs/Twist off of the cmd_vel node on the Jetson.
+  - **Next Major Task:** the navigation package from the standard ROS software stack (ros_navigation), and connecting this to the base boilerplate (ros_base) which is developed. The navigation package containes the tasks of target identification, path planning, and obstacle avoidance. Essentially connecting the cameras perception and mapping to the wheel motion package.
 
 ## Unit Testing
 ### Testing the bobert_control package
