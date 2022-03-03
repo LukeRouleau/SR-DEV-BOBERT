@@ -16,7 +16,7 @@ Team Mission Control's Repository for UF CpE Senior Design 2022; URL: https://gi
 4. [Individual Responsibilities](#responsibilities)
 5. [Unit Testing](#unit-testing)
 6. [~~Alpha~~ Beta Build Specifications](#alpha-beta-build-specifications)
-7. [Alpha Test Report](#alpha-test-report)
+7. [Test Report](#test-report)
 8. [Progress Log](#progress-log)
    
 ## Repository Contents
@@ -297,7 +297,7 @@ The exact specs of the Alpha build do not perfectly fit this project. For exampl
    <img src="./images/occupancy.gif" width="600">
 </p>
 
-## Alpha Test Report
+## Test Report
 This section represents the evaluation of our Beta Build against the test plan we established for it during the Alpha Build cycle. You can view the Alpha Test Plan document [here](./docs/Mission_Control_Alpha_Test_Plan.pdf) for further test elaboration. View our Beta Test Plan document [here](./INSERT HERE) for the testing process going forward.
 
 1. [Package Test for *bobert_control*](#testing-the-bobert_control-package)
