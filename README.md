@@ -261,15 +261,12 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
   - If the robot moves, this test was successful and passes. 
   - In another calibration step, pass 1 m/s velocity to the robot and verify that this is the speed the robot travels in real-life. 
 
-## ~~Alpha~~ Beta Build Specifications
-**Note: Beta Build Additions to this section will be bolded.**
+## ~~Alpha Beta~~ Release Candidate Build Specifications
 
-The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the ~~Alpha~~ Beta Build Spec accordingly.*
-
-**The unexpected hiccup of the Beta Build was the illness of Xuanhao. He was put out of commission for a few days and this inhibited his ability to make progress. We have factored in some flexibility in our long term deadlines, so we will be fine in the long run.**
+The exact specs of the Alpha build do not perfectly fit this project. For example, we have no user in the traditional sense, since the robot is autonomous, and thus, there is no user interface either. Also, we have been set back by several contraints for implementing a perfect vertical slice: (1) we do not yet have a robotic platform provided by the IEEE Hardware team to deploy on, (2) we did not have a URDF file for the arm, so we had to CAD one manually, which is causing us headaches in Rviz, and (3) having to roll back to ROS Melodic. *We will adapt elements of the ~~Alpha Beta~~ Release Candidate Build Spec accordingly.*
 
 ### Usability
-- **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace. **We now have a much better understanding of the structure of ROS packages and how they will interact. For example, we now know thta ROS provides standard software stacks/boilerplates for certain subsections of the robotic process. These sections are ros_mapping, ros_description, ros_base, ros_scan, ros_mapping, and ros_navigation. We have been tackling ros_base (the motor controller interface), ros_scan (the camera configuration), ros_mapping (the 2D occupancy map creation). We need to finish debugging ros_base for the hardware interfaces, and we need to start development of the ros_navigation package.**
+- **Interface:** As we now understand it, ROS is the central interface of the entire project. Under that axiom, the goal of the programmer is then to connect the hardware element to an abstraction called a ROS Node, which allows for the ROS system to manage and communicate with those hardware elements. The nodes also make their information available for other nodes which perform SLAM, path planning, and arm planning algorithms. We have two persistent interfaces constructed, the perception interface and the control interface. What is lacking is the connection in between, which takes in the sensory data, available on the camera nodes, and processes them into movement operations. Those movements would then be passed off the the control interace. We now have a much better understanding of the structure of ROS packages and how they will interact. For example, we now know thta ROS provides standard software stacks/boilerplates for certain subsections of the robotic process. These sections are ros_mapping, ros_description, ros_base, ros_scan, ros_mapping, and ros_navigation. We have been tackling ros_base (the motor controller interface), ros_scan (the camera configuration), ros_mapping (the 2D occupancy map creation). We need to finish debugging ros_base for the hardware interfaces, and we need to start development of the ros_navigation package.
 
 1. ROS Perception Interface
 <p align="center">
@@ -357,6 +354,9 @@ Create a ROS-running autonomous robot powered by the Nvidia Jetson. Since the Je
 - Implemented and tested the rosserial package, located [here](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/rosserial/) in the repo, by following [these](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup) instructions
 - Implemented and tested the occupancy package, located [here](./ROS_Melodic_Implementation/jetson_dev/catkin_ws/src/occupancy/) in the repo, with the source coming from [here](https://github.com/IntelRealSense/realsense-ros/tree/occupancy-mapping/occupancy)
 
+### Steps Taken [as of Release Candidate 3/2/22]:
+- Added a ROS map_server to save the maps for reuse, and allow it to be loaded for later use.
+
 ## [Native ROS Melodic Implementation: rviz_demo_ws](./ROS_Melodic_Implementation/jetson_dev/)
 ### Goal:
 Setup the Jetson for wireless headless operation, connect to it via ssh for remote development, set up ROS networking for remote Rviz debugging.
@@ -376,6 +376,9 @@ Setup the Jetson for wireless headless operation, connect to it via ssh for remo
 ## [Native ROS Melodic Implementation: teensyduino](./ROS_Melodic_Implementation/teensyduino/)
 ### Steps Taken [as of Beta Build 2/4/22]:
 - Following [this](http://wiki.ros.org/rosserial_arduino/Tutorials/Hello%20World) ROS tutorial, the rosserial connenection between the Jetson and Teensy was verified.
+
+### Steps Taken [as of Release Candidate 3/2/22]:
+- We have developed the lower-level control code that makes up the [ros_base](./ROS_Melodic_Implementation/teensyduino/base_control/) package. This is what allows the robot to wheel itself according to the Twist messages it receives on the cmd_vel node.
 
 ## [Native ROS Melodic Implementation: roboware_ros_ws](./ROS_Melodic_Implementation/roboware_ros_ws/)
 ### Goal:
