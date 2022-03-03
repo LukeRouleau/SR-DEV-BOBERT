@@ -253,6 +253,13 @@ This repo, SR-DEV-BOBERT, serves as a central location of our software for the r
    <img src="./images/occupancy.gif" width="600">
 </p>
 
+### Testing the [ROS_BASE](./ROS_Melodic_Implementation/teensyduino/base_control/src/) package via teleoperaion
+- Make sure the Teensy is flashed with the [cmd_vel_sub.ino](./ROS_Melodic_Implementation/teensyduino/base_control/src/cmd_vel_sub/cmd_vel_sub.ino) file.
+- Start ```roscore``` on the Jetson
+- In another terminal, run the rosserial client ```rosrun rosserial_python serial_node.py /dev/ttyACM0```.
+- In another terminal, run the ```rosrun teleop_twist_keyboard teleop_twist_keyboard.py``` and use this controller to teleoperate the robot.
+  - If the robot moves, this test was successful and passes. 
+  - In another calibration step, pass 1 m/s velocity to the robot and verify that this is the speed the robot travels in real-life. 
 
 ## ~~Alpha~~ Beta Build Specifications
 **Note: Beta Build Additions to this section will be bolded.**
