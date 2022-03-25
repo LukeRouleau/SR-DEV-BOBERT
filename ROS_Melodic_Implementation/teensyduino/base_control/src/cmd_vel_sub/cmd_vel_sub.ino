@@ -5,6 +5,11 @@
 #include <ros.h>
 #include <geometry_msgs/Twist.h>
 
+// Define your operation type here:
+#define STD_OPERATION
+#define CMD_VEL         // for normal subscription to /cmd_vel
+//#define TURTLE_CMD_VEL  // for subscription to /turtle1/cmd_vel
+
 // Define the max cmd_vel that is issued from move_base
 // Based on our experimentation, the max operational speed is 0.27686 m/s
 // At half speed, this is 0.13208
@@ -18,8 +23,6 @@
 #define R_MOTOR_TUNING  0.96
 
 
-// Define your operation type here:
-#define STD_OPERATION
 
 /* ---------- LEFT ---------- */
 // TB9051FTGMotorCarrier pin definitions
@@ -78,8 +81,11 @@ void cmd_vel_cb(const geometry_msgs::Twist & msg){
 }
 
 /* ---------- Set up the subscriber ---------- */
+#ifdef CMD_VEL
+ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel", cmd_vel_cb);
+#else
 ros::Subscriber<geometry_msgs::Twist> sub("turtle1/cmd_vel", cmd_vel_cb);
-//ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel", cmd_vel_cb);
+#endif
 
 void setup() {
     // Init the motor carrier handles
